@@ -23,5 +23,11 @@ public class Screen {
             }
         }
     }
+    
+    public void clear(){
+        for(int i = 0; i<pixels.length; i++){
+            pixels[i] = 0;
+        }
+    }
 
 }
