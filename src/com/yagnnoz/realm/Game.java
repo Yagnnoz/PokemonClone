@@ -35,7 +35,7 @@ public class Game extends Canvas implements Runnable {
         Dimension size = new Dimension(width * scale, height * scale);
         setPreferredSize(size);
         screen = new Screen(width, height);
-        
+
         frame = new JFrame();
 
     }
@@ -85,10 +85,15 @@ public class Game extends Canvas implements Runnable {
             createBufferStrategy(3); // puts 2 frames in the buffer and 1 on the screen. (2) would have 1 frame buffer and 1 on the screen. more buffers are not useful. 3 is best max.
             return;
         }
+
+        screen.render();
+        for (int i = 0; i < pixels.length; i++) {
+            pixels[i] = screen.pixels[i];
+        }
+
         Graphics g = bs.getDrawGraphics();
         //Graphic stuff goes here
-        g.setColor(Color.DARK_GRAY);
-        g.fillRect(0, 0, getWidth(), getHeight()); //getWidht() and getHeight() returns size of the window; part of component
+        g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
         g.dispose();
         bs.show();
     }
