@@ -1,7 +1,9 @@
 package com.yagnnoz.realm;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
@@ -73,6 +75,12 @@ public class Game extends Canvas implements Runnable {
             createBufferStrategy(3); // puts 2 frames in the buffer and 1 on the screen. (2) would have 1 frame buffer and 1 on the screen. more buffers are not useful. 3 is best max.
             return;
         }
+        Graphics g = bs.getDrawGraphics();
+        //Graphic stuff goes here
+        g.setColor(Color.DARK_GRAY);
+        g.fillRect(0, 0, getWidth(), getHeight()); //getWidht() and getHeight() returns size of the window; part of component
+        g.dispose();
+        bs.show();
     }
 
 }
