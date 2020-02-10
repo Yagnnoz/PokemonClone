@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferInt;
 import javax.swing.JFrame;
 
 /**
@@ -22,6 +24,9 @@ public class Game extends Canvas implements Runnable {
     private Thread gameThread;
     private JFrame frame;
     private boolean running = false;
+
+    private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR); //creating an image
+    private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();        //accessing the image & modify
 
     public Game() {
         Dimension size = new Dimension(width * scale, height * scale);
@@ -66,12 +71,12 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void update() {
-        
+
     }
 
     private void render() {
         BufferStrategy bs = getBufferStrategy();
-        if(bs == null){
+        if (bs == null) {
             createBufferStrategy(3); // puts 2 frames in the buffer and 1 on the screen. (2) would have 1 frame buffer and 1 on the screen. more buffers are not useful. 3 is best max.
             return;
         }
