@@ -1,5 +1,6 @@
 package com.yagnnoz.realm;
 
+import com.yagnnoz.realm.graphics.Screen;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -25,14 +26,18 @@ public class Game extends Canvas implements Runnable {
     private JFrame frame;
     private boolean running = false;
 
+    private Screen screen;
+
     private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR); //creating an image
-    private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();        //accessing the image & modify
+    private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();        //accessing the image & modify
 
     public Game() {
         Dimension size = new Dimension(width * scale, height * scale);
         setPreferredSize(size);
-
+        screen = new Screen(width, height);
+        
         frame = new JFrame();
+
     }
 
     public synchronized void start() {
