@@ -1,8 +1,8 @@
 package com.yagnnoz.realm;
 
 import com.yagnnoz.realm.graphics.Screen;
+import com.yagnnoz.realm.input.Keyboard;
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -24,6 +24,7 @@ public class Game extends Canvas implements Runnable {
     
     private Thread gameThread;
     private JFrame frame;
+    private Keyboard key;
     private boolean running = false;
     
     private Screen screen;
@@ -31,12 +32,15 @@ public class Game extends Canvas implements Runnable {
     private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR); //creating an image
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();        //accessing the image & modify
 
+    
     public Game() {
         Dimension size = new Dimension(width * scale, height * scale);
         setPreferredSize(size);
         screen = new Screen(width, height);
-        
         frame = new JFrame();
+        key = new Keyboard();
+        
+        addKeyListener(key);
         
     }
     
@@ -98,7 +102,7 @@ public class Game extends Canvas implements Runnable {
     }
     
     private void update() {
-        
+        key.update();
     }
     
     private void render() {

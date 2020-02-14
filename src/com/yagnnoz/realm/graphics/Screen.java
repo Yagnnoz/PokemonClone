@@ -28,18 +28,20 @@ public class Screen {
 
     public void render() {
         for (int y = 0; y < height; y++) {
-            if (y < 0 || y >= height) {
+            int yy = y;
+            if (yy < 0 || yy >= height) {
                 break;
             }
 
             for (int x = 0; x < width; x++) {
-                if (x < 0 || x >= width) {
+                int xx = x;
+                if (xx < 0 || xx >= width) {
                     break;
                 }
                 //x>>4 ist das gleiche wie x/16. bitshift nach rechts um  4 -> geteilt durch 2^4 => geteilt durch 16
                 //bessere performance in nested for loops
                 int tileIndex = (x >> 4) + (y >> 4) * 64;     //a single tile is 16x16
-                pixels[x + y * width] = tiles[tileIndex];   //kein 2D array, darum so.
+                pixels[xx + yy * width] = tiles[tileIndex];   //kein 2D array, darum so.
 
             }
         }
