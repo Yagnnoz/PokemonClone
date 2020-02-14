@@ -15,41 +15,40 @@ import javax.swing.JFrame;
  * @author Jens
  */
 public class Game extends Canvas implements Runnable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     public static int width = 300;
     public static int height = width / 16 * 9;      //16:9 format
     public static int scale = 3;
-    
+
     private Thread gameThread;
     private JFrame frame;
     private Keyboard key;
     private boolean running = false;
-    
+
     private Screen screen;
-    
+
     private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR); //creating an image
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();        //accessing the image & modify
 
-    
     public Game() {
         Dimension size = new Dimension(width * scale, height * scale);
         setPreferredSize(size);
         screen = new Screen(width, height);
         frame = new JFrame();
         key = new Keyboard();
-        
+
         addKeyListener(key);
-        
+
     }
-    
+
     public synchronized void start() {
         running = true;
         gameThread = new Thread(this, "Display");
         gameThread.start();
     }
-    
+
     public synchronized void stop() {
         running = false;
         try {
@@ -58,7 +57,7 @@ public class Game extends Canvas implements Runnable {
             ex.printStackTrace();
         }
     }
-    
+
     @Override
     public void run() {
         long lastTime = System.nanoTime();
@@ -67,7 +66,7 @@ public class Game extends Canvas implements Runnable {
         double delta = 0;
         int frames = 0;
         int updates = 0;
-        
+
         while (running) {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
@@ -79,7 +78,7 @@ public class Game extends Canvas implements Runnable {
             }
             render();
             frames++;
-            
+
             if (System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
                 frame.setTitle("RAIN | UPS: " + updates + ", FPS: " + frames);
@@ -88,7 +87,7 @@ public class Game extends Canvas implements Runnable {
             }
         }
     }
-    
+
     public static void main(String[] args) {
         Game game = new Game();
         game.frame.setResizable(false);
@@ -98,13 +97,29 @@ public class Game extends Canvas implements Runnable {
         game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         game.frame.setLocationRelativeTo(null);  //centers window on the screen
         game.frame.setVisible(true);
+        game.requestFocusInWindow();
         game.start();
     }
-    
+
+    int x = 0, y = 0;
+
     private void update() {
+      
+        if (key.up) {
+            y--;
+        }
+        if (key.down) {
+            y++;
+        }
+        if (key.left) {
+            x--;
+        }
+        if (key.right) {
+            x++;
+        }
         key.update();
     }
-    
+
     private void render() {
         BufferStrategy bs = getBufferStrategy();
         if (bs == null) {
@@ -112,16 +127,16 @@ public class Game extends Canvas implements Runnable {
             return;
         }
         screen.clear();
-        screen.render();
+        screen.render(x,y);
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] = screen.pixels[i];
         }
-        
+
         Graphics g = bs.getDrawGraphics();
         //Graphic stuff goes here
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
         g.dispose();
         bs.show();
     }
-    
+
 }
