@@ -66,7 +66,8 @@ public class Game extends Canvas implements Runnable {
         double delta = 0;
         int frames = 0;
         int updates = 0;
-
+        
+        
         while (running) {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
@@ -97,7 +98,6 @@ public class Game extends Canvas implements Runnable {
         game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         game.frame.setLocationRelativeTo(null);  //centers window on the screen
         game.frame.setVisible(true);
-        game.requestFocusInWindow();
         game.start();
     }
 
@@ -124,6 +124,7 @@ public class Game extends Canvas implements Runnable {
         BufferStrategy bs = getBufferStrategy();
         if (bs == null) {
             createBufferStrategy(3); // puts 2 frames in the buffer and 1 on the screen. (2) would have 1 frame buffer and 1 on the screen. more buffers are not useful. 3 is best max.
+            requestFocus();
             return;
         }
         screen.clear();
