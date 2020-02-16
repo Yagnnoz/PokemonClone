@@ -1,5 +1,6 @@
 package com.yagnnoz.realm.graphics;
 
+import com.yagnnoz.realm.level.tile.Tile;
 import java.util.Random;
 
 /**
@@ -49,6 +50,12 @@ public class Screen {
     public void clear() {
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] = 0;
+        }
+    }
+
+    public void renderTile(int xPos, int yPos, Tile tile) {
+        for (int y = 0; y < tile.sprite.SIZE; y++) {
+            int yAbs = y+yPos;
         }
     }
 
