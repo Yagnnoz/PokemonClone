@@ -1,41 +1,72 @@
 package com.yagnnoz.realm.level;
 
 import com.yagnnoz.realm.graphics.Screen;
+import com.yagnnoz.realm.level.tile.Tile;
 
 /**
  *
  * @author Jens
  */
 public class Level {
-    
+
     protected int width, height;
     protected int[] tiles;
-    
-    public Level(int width, int height){
+
+    public Level(int width, int height) {
         this.width = width;
         this.height = height;
-        tiles = new int[width*height];
+        tiles = new int[width * height];
         generateLevel();
     }
-    
-    public Level(String path){
+
+    public Level(String path) {
         loadLevel(path);
     }
 
     protected void generateLevel() {
-        
+
     }
 
     private void loadLevel(String path) {
-        
+
     }
-    
-    public void update(){
-        
+
+    public void update() {
+
     }
-    
-    public void render(int xScroll, int yScroll, Screen screen){
-        
+
+    public void render(int xScroll, int yScroll, Screen screen) {
+
+        screen.setOffset(xScroll, yScroll);
+
+        /*
+        * adding cornerpins.
+        * grund: aufteilung des Kooordinatensystems in Tiles, nicht in Pixel
+        * x0 -> left side of the screen
+        * x1 -> right side of the screen
+        * y0 -> top side of the screen
+        * y1 -> bottom side of the screen
+         */
+        int x0 = xScroll >> 4; //shift right um 4 -> identisch mit geteilt durch 16 (größe der tiles).
+        int x1 = (xScroll + screen.width + 16) >> 4; //brackets important, so that the division comes after the addition
+        int y0 = yScroll >> 4;
+        int y1 = (yScroll + screen.height + 16) >> 4;
+
+        for (int y = y0; y < y1; y++) {
+            for (int x = x0; x < x1; x++) {
+                getTile(x, y).render(x, y, screen);
+            }
+        }
     }
-    
+
+    public Tile getTile(int x, int y) {
+        if (x < 0 || y < 0 || x >= width || y >= height) {
+            return Tile.voidTile;
+        }
+        if (tiles[x + y * width] == 0) {
+            return Tile.grass;
+        }
+        return Tile.voidTile;
+    }
+
 }

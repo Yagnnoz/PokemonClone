@@ -2,6 +2,8 @@ package com.yagnnoz.realm;
 
 import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.input.Keyboard;
+import com.yagnnoz.realm.level.Level;
+import com.yagnnoz.realm.level.RandomLevel;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -25,11 +27,12 @@ public class Game extends Canvas implements Runnable {
     private Thread gameThread;
     private JFrame frame;
     private Keyboard key;
+    private Level level;
     private boolean running = false;
 
     private Screen screen;
 
-    private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR); //creating an image
+    private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB); //creating an image
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();        //accessing the image & modify
 
     public Game() {
@@ -38,6 +41,7 @@ public class Game extends Canvas implements Runnable {
         screen = new Screen(width, height);
         frame = new JFrame();
         key = new Keyboard();
+        level = new RandomLevel(64, 64);
 
         addKeyListener(key);
 
@@ -66,8 +70,7 @@ public class Game extends Canvas implements Runnable {
         double delta = 0;
         int frames = 0;
         int updates = 0;
-        
-        
+
         while (running) {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
@@ -104,7 +107,7 @@ public class Game extends Canvas implements Runnable {
     int x = 0, y = 0;
 
     private void update() {
-      
+
         if (key.up) {
             y--;
         }
@@ -128,7 +131,8 @@ public class Game extends Canvas implements Runnable {
             return;
         }
         screen.clear();
-        screen.render(x,y);
+        level.render(x, y, screen);
+
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] = screen.pixels[i];
         }
