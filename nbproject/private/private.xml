@@ -5,9 +5,11 @@
         <group>
             <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/level/Level.java</file>
             <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/level/RandomLevel.java</file>
+            <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/graphics/Sprite.java</file>
             <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/level/tile/GrassTile.java</file>
             <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/Game.java</file>
             <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/level/tile/Tile.java</file>
+            <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/level/tile/VoidTile.java</file>
             <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/graphics/Screen.java</file>
         </group>
     </open-files>
