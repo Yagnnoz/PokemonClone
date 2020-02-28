@@ -9,8 +9,11 @@
             <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/level/tile/GrassTile.java</file>
             <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/Game.java</file>
             <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/level/tile/Tile.java</file>
+            <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/entity/Entity.java</file>
+            <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/entity/mob/Mob.java</file>
             <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/level/tile/VoidTile.java</file>
             <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/graphics/Screen.java</file>
+            <file>file:/D:/Documents/GitHub%20Repos/RealmOfTheMadGod/src/com/yagnnoz/realm/entity/mob/Player.java</file>
         </group>
     </open-files>
 </project-private>
