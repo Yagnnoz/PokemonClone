@@ -1,5 +1,6 @@
 package com.yagnnoz.realm;
 
+import com.yagnnoz.realm.entity.mob.Player;
 import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.input.Keyboard;
 import com.yagnnoz.realm.level.Level;
@@ -28,6 +29,7 @@ public class Game extends Canvas implements Runnable {
     private JFrame frame;
     private Keyboard key;
     private Level level;
+    private Player player;
     private boolean running = false;
 
     private Screen screen;
@@ -42,6 +44,7 @@ public class Game extends Canvas implements Runnable {
         frame = new JFrame();
         key = new Keyboard();
         level = new RandomLevel(64, 64);
+        player = new Player(key);
 
         addKeyListener(key);
 
@@ -104,23 +107,9 @@ public class Game extends Canvas implements Runnable {
         game.start();
     }
 
-    int x = 0, y = 0;
-
     private void update() {
-
-        if (key.up) {
-            y--;
-        }
-        if (key.down) {
-            y++;
-        }
-        if (key.left) {
-            x--;
-        }
-        if (key.right) {
-            x++;
-        }
         key.update();
+        player.update();
     }
 
     private void render() {
@@ -131,7 +120,7 @@ public class Game extends Canvas implements Runnable {
             return;
         }
         screen.clear();
-        level.render(x, y, screen);
+        level.render(player.x, player.y, screen);
 
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] = screen.pixels[i];
