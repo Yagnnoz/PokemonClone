@@ -1,5 +1,6 @@
 package com.yagnnoz.realm.graphics;
 
+import com.yagnnoz.realm.entity.mob.Player;
 import com.yagnnoz.realm.level.tile.Tile;
 import java.util.Random;
 
@@ -46,14 +47,35 @@ public class Screen {
                 if (xAbs < -tile.sprite.SIZE || xAbs >= width || yAbs < 0 || yAbs >= height) {
                     break;
                 }
-                if(xAbs < 0) {
+                if (xAbs < 0) {
                     xAbs = 0;
                 }
                 pixels[xAbs + yAbs * width] = tile.sprite.pixels[x + y * tile.sprite.SIZE];
 
             }
         }
+    }
 
+    public void renderPlayer(int xPos, int yPos, Sprite sprite) {
+        xPos -= xOffset;
+        yPos -= yOffset;
+        for (int y = 0; y < 16; y++) {
+            int yAbs = y + yPos;
+            for (int x = 0; x < 16; x++) {
+                int xAbs = x + xPos;
+                if (xAbs < -16 || xAbs >= width || yAbs < 0 || yAbs >= height) {
+                    break;
+                }
+                if (xAbs < 0) {
+                    xAbs = 0;
+                }
+                int colour = sprite.pixels[x + y * 16];
+                if (colour != 0xffff00ff) {     //ACHTUNG hier sind 4 Channels. FF FF 00 FF -> Alpha R G B
+                    pixels[xAbs + yAbs * width] = colour;
+                }
+
+            }
+        }
     }
 
     public void setOffset(int xOffset, int yOffset) {
