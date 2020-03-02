@@ -59,17 +59,17 @@ public class Screen {
     public void renderPlayer(int xPos, int yPos, Sprite sprite) {
         xPos -= xOffset;
         yPos -= yOffset;
-        for (int y = 0; y < 16; y++) {
+        for (int y = 0; y < 32; y++) {
             int yAbs = y + yPos;
-            for (int x = 0; x < 16; x++) {
+            for (int x = 0; x < 32; x++) {
                 int xAbs = x + xPos;
-                if (xAbs < -16 || xAbs >= width || yAbs < 0 || yAbs >= height) {
+                if (xAbs < -32 || xAbs >= width || yAbs < 0 || yAbs >= height) {
                     break;
                 }
                 if (xAbs < 0) {
                     xAbs = 0;
                 }
-                int colour = sprite.pixels[x + y * 16];
+                int colour = sprite.pixels[x + y * 32];
                 if (colour != 0xffff00ff) {     //ACHTUNG hier sind 4 Channels. FF FF 00 FF -> Alpha R G B
                     pixels[xAbs + yAbs * width] = colour;
                 }
