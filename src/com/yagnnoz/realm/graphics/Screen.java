@@ -63,6 +63,7 @@ public class Screen {
             int yAbs = y + yPos;
             for (int x = 0; x < 32; x++) {
                 int xAbs = x + xPos;
+             
                 if (xAbs < -32 || xAbs >= width || yAbs < 0 || yAbs >= height) {
                     break;
                 }
