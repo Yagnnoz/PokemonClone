@@ -27,7 +27,7 @@ public class Level {
 
     }
 
-    private void loadLevel(String path) {
+    protected void loadLevel(String path) {
 
     }
 
@@ -74,5 +74,7 @@ public class Level {
         }
         return Tile.voidTile;
     }
+    
+    
 
 }

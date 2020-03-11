@@ -1,6 +1,5 @@
 package com.yagnnoz.realm.graphics;
 
-import com.yagnnoz.realm.entity.mob.Player;
 import com.yagnnoz.realm.level.tile.Tile;
 import java.util.Random;
 
