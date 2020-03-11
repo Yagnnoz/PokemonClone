@@ -67,10 +67,10 @@ public class Level {
             return Tile.grass;
         }
         if (tiles[x + y * width] == 1) {
-            return Tile.grass2;
+            return Tile.flower;
         }
         if (tiles[x + y * width] == 2) {
-            return Tile.grass3;
+            return Tile.rock;
         }
         return Tile.voidTile;
     }
