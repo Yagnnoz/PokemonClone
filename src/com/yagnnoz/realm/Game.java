@@ -5,6 +5,7 @@ import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.input.Keyboard;
 import com.yagnnoz.realm.level.Level;
 import com.yagnnoz.realm.level.RandomLevel;
+import com.yagnnoz.realm.level.SpawnLevel;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -43,7 +44,7 @@ public class Game extends Canvas implements Runnable {
         screen = new Screen(width, height);
         frame = new JFrame();
         key = new Keyboard();
-        level = new RandomLevel(64, 64);
+        level = new SpawnLevel("/textures/level.png");
         player = new Player(key);
 
         addKeyListener(key);

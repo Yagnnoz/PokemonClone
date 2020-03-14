@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 public class SpawnLevel extends Level {
 
-    private Tile[] tiles;
+    
     private int[] lvlPixels;
 
     public SpawnLevel(String path) {
