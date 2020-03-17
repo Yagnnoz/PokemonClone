@@ -1,5 +1,7 @@
 package com.yagnnoz.realm.level.tile;
 
+import com.yagnnoz.realm.level.tile.spawn_level.*;
+
 import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.graphics.Sprite;
 
@@ -8,25 +10,33 @@ import com.yagnnoz.realm.graphics.Sprite;
  * @author Jens
  */
 public class Tile {
-    
-    public int x,y;
+
+    public int x, y;
     public Sprite sprite;
-    
+
     public static Tile grass = new GrassTile(Sprite.grass);
     public static Tile flower = new FlowerTile(Sprite.flower);
     public static Tile rock = new RockTile(Sprite.rock);
     public static Tile voidTile = new VoidTile(Sprite.voidSprite);
-    
-    public Tile(Sprite sprite){
+
+    public static Tile spawn_grass1 = new SpawnGrassTile(Sprite.spawn_grass1);
+    public static Tile spawn_grass2 = new SpawnGrassTile(Sprite.spawn_grass2);
+    public static Tile spawn_flower = new SpawnGrassTile(Sprite.spawn_flower);
+    public static Tile spawn_rock = new SpawnRockTile(Sprite.spawn_rock);
+    public static Tile spawn_sand = new SpawnSandTile(Sprite.spawn_sand);
+    public static Tile spawn_shroom = new SpawnGrassTile(Sprite.spawn_shroom);
+    public static Tile spawn_water = new SpawnWaterTile(Sprite.spawn_water);
+
+    public Tile(Sprite sprite) {
         this.sprite = sprite;
     }
-    
-    public void render(int x, int y, Screen screen){
-        
+
+    public void render(int x, int y, Screen screen) {
+
     }
-    
-    public boolean solid(){
+
+    public boolean solid() {
         return false;
     }
-    
+
 }

@@ -1,7 +1,5 @@
 package com.yagnnoz.realm.graphics;
 
-import java.awt.Color;
-
 /**
  *
  * @author Jens
@@ -18,6 +16,16 @@ public class Sprite {
     public static Sprite rock = new Sprite(16, 2, 0, SpriteSheet.tiles);
     public static Sprite voidSprite = new Sprite(16, 0x2b2b2b); //beautiful dark gray
 
+    //Spawn Level Sprites:
+    public static Sprite spawn_grass1 = new Sprite(16, 0, 0, SpriteSheet.spawnLevel);
+    public static Sprite spawn_grass2 = new Sprite(16, 1, 0, SpriteSheet.spawnLevel);
+    public static Sprite spawn_flower = new Sprite(16, 2, 0, SpriteSheet.spawnLevel);
+    public static Sprite spawn_water = new Sprite(16, 0, 1, SpriteSheet.spawnLevel);
+    public static Sprite spawn_sand = new Sprite(16, 1, 1, SpriteSheet.spawnLevel);
+    public static Sprite spawn_shroom = new Sprite(16, 0, 2, SpriteSheet.spawnLevel);
+    public static Sprite spawn_rock = new Sprite(16, 1, 2, SpriteSheet.spawnLevel);
+
+    //Player Sprites:
     public static Sprite player_up = new Sprite(32, 0, 5, SpriteSheet.tiles);
     public static Sprite player_up_1 = new Sprite(32, 0, 6, SpriteSheet.tiles);
     public static Sprite player_up_2 = new Sprite(32, 0, 7, SpriteSheet.tiles);
