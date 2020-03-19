@@ -26,6 +26,13 @@ public class Tile {
     public static Tile spawn_sand = new SpawnSandTile(Sprite.spawn_sand);
     public static Tile spawn_shroom = new SpawnGrassTile(Sprite.spawn_shroom);
     public static Tile spawn_water = new SpawnWaterTile(Sprite.spawn_water);
+    
+    public static final int col_spawnTree = 0xff1C5B00;
+    public static final int col_spawnHighGrass = 0xff89FF53;
+    public static final int col_spawnWater = 0xff006CFF;
+    public static final int col_spawnDirt = 0xffFDD78B;
+    
+    
 
     public Tile(Sprite sprite) {
         this.sprite = sprite;
