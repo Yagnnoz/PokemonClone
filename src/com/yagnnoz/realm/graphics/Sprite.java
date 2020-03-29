@@ -17,8 +17,8 @@ public class Sprite {
     public static Sprite voidSprite = new Sprite(16, 0x2b2b2b); //beautiful dark gray
 
     //Spawn Level Sprites:
-    public static Sprite spawn_grass1 = new Sprite(16, 0, 0, SpriteSheet.spawnLevel);
-    public static Sprite spawn_grass2 = new Sprite(16, 1, 0, SpriteSheet.spawnLevel);
+    public static Sprite spawn_tree = new Sprite(16, 0, 0, SpriteSheet.spawnLevel);
+    public static Sprite spawn_grass = new Sprite(16, 1, 0, SpriteSheet.spawnLevel);
     public static Sprite spawn_flower = new Sprite(16, 2, 0, SpriteSheet.spawnLevel);
     public static Sprite spawn_water = new Sprite(16, 0, 1, SpriteSheet.spawnLevel);
     public static Sprite spawn_sand = new Sprite(16, 1, 1, SpriteSheet.spawnLevel);

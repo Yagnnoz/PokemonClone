@@ -27,7 +27,7 @@ public abstract class Mob extends Entity {
             dir = 0;
         }
 
-        if (!collision()) {
+        if (!collision(xa, ya)) {
             x += xa;
             y += ya;
         }
@@ -41,8 +41,13 @@ public abstract class Mob extends Entity {
 
     }
 
-    private boolean collision() {
-        return false;
+    private boolean collision(int xa, int ya) {
+        boolean solid = false;
+        if (level.getTile((x + xa)/16, (y + ya)/16).solid()) {
+
+            solid = true;
+        }
+        return solid;
     }
 
 }

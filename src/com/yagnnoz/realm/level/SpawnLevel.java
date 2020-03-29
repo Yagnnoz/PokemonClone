@@ -1,7 +1,5 @@
 package com.yagnnoz.realm.level;
 
-import com.yagnnoz.realm.level.tile.GrassTile;
-import com.yagnnoz.realm.level.tile.Tile;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;

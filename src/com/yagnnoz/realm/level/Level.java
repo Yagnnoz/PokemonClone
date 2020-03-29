@@ -75,7 +75,7 @@ public class Level {
             return Tile.voidTile;
         }
         if (tiles[x + y * width] == Tile.col_spawnTree) {
-            return Tile.spawn_grass1;
+            return Tile.spawn_tree;
         }
         if (tiles[x + y * width] == Tile.col_spawnWater) {
             return Tile.spawn_water;
@@ -84,7 +84,7 @@ public class Level {
             return Tile.spawn_sand;
         }
         if (tiles[x + y * width] == Tile.col_spawnHighGrass) {
-            return Tile.spawn_grass2;
+            return Tile.spawn_grass;
         }
         
         return Tile.voidTile;

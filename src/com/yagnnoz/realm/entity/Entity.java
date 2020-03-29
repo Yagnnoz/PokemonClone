@@ -9,28 +9,31 @@ import java.util.Random;
  * @author Jens
  */
 public abstract class Entity {
-    
-    public int x,y;
+
+    public int x, y;
     private boolean removed = false;
     protected Level level;
     protected final Random rdm = new Random();
-    
-    
-    public void update(){
-        
+
+    public void update() {
+
     }
-    
-    public void render(Screen screen){
-        
+
+    public void render(Screen screen) {
+
     }
-    
-    public void remove(){
-        
+
+    public void remove() {
+
         removed = true;
     }
-    
-    public boolean isRemoved(){
+
+    public boolean isRemoved() {
         //remove from level
         return removed;
+    }
+
+    public void init(Level level) {
+        this.level = level;
     }
 }

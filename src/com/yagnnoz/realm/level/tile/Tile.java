@@ -19,8 +19,8 @@ public class Tile {
     public static Tile rock = new RockTile(Sprite.rock);
     public static Tile voidTile = new VoidTile(Sprite.voidSprite);
 
-    public static Tile spawn_grass1 = new SpawnGrassTile(Sprite.spawn_grass1);
-    public static Tile spawn_grass2 = new SpawnGrassTile(Sprite.spawn_grass2);
+    public static Tile spawn_tree = new SpawnTreeTile(Sprite.spawn_tree);
+    public static Tile spawn_grass = new SpawnGrassTile(Sprite.spawn_grass);
     public static Tile spawn_flower = new SpawnGrassTile(Sprite.spawn_flower);
     public static Tile spawn_rock = new SpawnRockTile(Sprite.spawn_rock);
     public static Tile spawn_sand = new SpawnSandTile(Sprite.spawn_sand);

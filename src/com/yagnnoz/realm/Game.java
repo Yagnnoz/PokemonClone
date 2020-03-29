@@ -4,8 +4,8 @@ import com.yagnnoz.realm.entity.mob.Player;
 import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.input.Keyboard;
 import com.yagnnoz.realm.level.Level;
-import com.yagnnoz.realm.level.RandomLevel;
 import com.yagnnoz.realm.level.SpawnLevel;
+import com.yagnnoz.realm.level.TileCoordinate;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -19,22 +19,22 @@ import javax.swing.JFrame;
  * @author Jens
  */
 public class Game extends Canvas implements Runnable {
-
+    
     private static final long serialVersionUID = 1L;
-
+    
     public static int width = 300;
     public static int height = width / 16 * 9;      //16:9 format
     public static int scale = 3;
-
+    
     private Thread gameThread;
     private JFrame frame;
     private Keyboard key;
     private Level level;
     private Player player;
     private boolean running = false;
-
+    
     private Screen screen;
-
+    
     private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB); //creating an image
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();        //accessing the image & modify
 
@@ -45,18 +45,19 @@ public class Game extends Canvas implements Runnable {
         frame = new JFrame();
         key = new Keyboard();
         level = new SpawnLevel("/levels/spawn.png");
-        player = new Player(8 * 16, 8 * 16, key);
-
+        TileCoordinate playerSpawn = new TileCoordinate(11, 4);
+        player = new Player(playerSpawn.getX(), playerSpawn.getY(), key);
+        player.init(level);
         addKeyListener(key);
-
+        
     }
-
+    
     public synchronized void start() {
         running = true;
         gameThread = new Thread(this, "Display");
         gameThread.start();
     }
-
+    
     public synchronized void stop() {
         running = false;
         try {
@@ -65,7 +66,7 @@ public class Game extends Canvas implements Runnable {
             ex.printStackTrace();
         }
     }
-
+    
     @Override
     public void run() {
         long lastTime = System.nanoTime();
@@ -74,7 +75,7 @@ public class Game extends Canvas implements Runnable {
         double delta = 0;
         int frames = 0;
         int updates = 0;
-
+        
         while (running) {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
@@ -86,7 +87,7 @@ public class Game extends Canvas implements Runnable {
             }
             render();
             frames++;
-
+            
             if (System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
                 frame.setTitle("RAIN | UPS: " + updates + ", FPS: " + frames);
@@ -95,7 +96,7 @@ public class Game extends Canvas implements Runnable {
             }
         }
     }
-
+    
     public static void main(String[] args) {
         Game game = new Game();
         game.frame.setResizable(false);
@@ -107,12 +108,12 @@ public class Game extends Canvas implements Runnable {
         game.frame.setVisible(true);
         game.start();
     }
-
+    
     private void update() {
         key.update();
         player.update();
     }
-
+    
     private void render() {
         BufferStrategy bs = getBufferStrategy();
         if (bs == null) {
@@ -125,16 +126,16 @@ public class Game extends Canvas implements Runnable {
         int yScroll = player.y - screen.height / 2; //centering the player
         level.render(xScroll, yScroll, screen);
         player.render(screen);
-
+        
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] = screen.pixels[i];
         }
-
+        
         Graphics g = bs.getDrawGraphics();
         //Graphic stuff goes here
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
         g.dispose();
         bs.show();
     }
-
+    
 }
