@@ -14,13 +14,13 @@ public abstract class Mob extends Entity {
     protected boolean moving = false;
 
     public void move(int xa, int ya) {
-        
-        if(xa != 0 && ya != 0){ //auf 2 achsen bewegen (diagonal)
-            move(xa,0);
+
+        if (xa != 0 && ya != 0) { //auf 2 achsen bewegen (diagonal)
+            move(xa, 0);
             move(0, ya);
             return; //wichtig, da die Methode sonst nicht abgebrochen wird!
         }
-        
+
         if (xa > 0) {
             dir = 1;
         }
@@ -50,10 +50,15 @@ public abstract class Mob extends Entity {
 
     private boolean collision(int xa, int ya) {
         boolean solid = false;
-        if (level.getTile((x + xa)/16, (y + ya)/16).solid()) {
+        for (int corner = 0; corner < 4; corner++) {
+            int xt = ((x + xa) + corner % 2 * 12 - 7) / 16;     //*10 ist die Breite des Collisionsbereichs
+            int yt = ((y + ya) + corner / 2 * 12 + 3) / 16;
 
-            solid = true;
+            if (level.getTile(xt, yt).solid()) {
+                solid = true;
+            }
         }
+
         return solid;
     }
 
