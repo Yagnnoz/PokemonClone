@@ -2,12 +2,13 @@ package com.yagnnoz.realm;
 
 import com.yagnnoz.realm.entity.mob.Player;
 import com.yagnnoz.realm.graphics.Screen;
-import com.yagnnoz.realm.input.Keyboard;
+import com.yagnnoz.realm.input.*;
 import com.yagnnoz.realm.level.Level;
 import com.yagnnoz.realm.level.SpawnLevel;
 import com.yagnnoz.realm.level.TileCoordinate;
 import java.awt.Canvas;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -49,6 +50,9 @@ public class Game extends Canvas implements Runnable {
         player = new Player(playerSpawn.getX(), playerSpawn.getY(), key);
         player.init(level);
         addKeyListener(key);
+        Mouse mouse = new Mouse();
+        addMouseListener(mouse);
+        addMouseMotionListener(mouse);
         
     }
     
@@ -134,6 +138,9 @@ public class Game extends Canvas implements Runnable {
         Graphics g = bs.getDrawGraphics();
         //Graphic stuff goes here
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+        
+        g.setFont(new Font("Calibri", 0, 50));
+        g.drawString("Button: "+Mouse.getButton(), 80, 80);
         g.dispose();
         bs.show();
     }
