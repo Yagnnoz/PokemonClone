@@ -140,7 +140,6 @@ public class Game extends Canvas implements Runnable {
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
         
         g.setFont(new Font("Calibri", 0, 50));
-        g.drawString("Button: "+Mouse.getButton(), 80, 80);
         g.dispose();
         bs.show();
     }

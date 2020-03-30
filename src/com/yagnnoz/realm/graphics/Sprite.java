@@ -17,7 +17,26 @@ public class Sprite {
     public static Sprite voidSprite = new Sprite(16, 0x2b2b2b); //beautiful dark gray
 
     //Spawn Level Sprites:
-    public static Sprite spawn_tree = new Sprite(16, 0, 0, SpriteSheet.spawnLevel);
+    //---------------- TREE ----------------------------------------------------
+    public static Sprite spawn_tree_1 = new Sprite(16,0,0, SpriteSheet.spawnLevel);
+    public static Sprite spawn_tree_2 = new Sprite(16,1,0, SpriteSheet.spawnLevel);
+    public static Sprite spawn_tree_3 = new Sprite(16,2,0, SpriteSheet.spawnLevel);
+    public static Sprite spawn_tree_4 = new Sprite(16,0,1, SpriteSheet.spawnLevel);
+    public static Sprite spawn_tree_5 = new Sprite(16,1,1, SpriteSheet.spawnLevel);
+    public static Sprite spawn_tree_6 = new Sprite(16,2,1, SpriteSheet.spawnLevel);
+    public static Sprite spawn_tree_7 = new Sprite(16,0,2, SpriteSheet.spawnLevel);
+    public static Sprite spawn_tree_8 = new Sprite(16,1,2, SpriteSheet.spawnLevel);
+    public static Sprite spawn_tree_9 = new Sprite(16,2,2, SpriteSheet.spawnLevel);
+    public static Sprite spawn_tree_corner1 = new Sprite(16,3,3, SpriteSheet.spawnLevel);
+    public static Sprite spawn_tree_corner2 = new Sprite(16,4,3, SpriteSheet.spawnLevel);
+    public static Sprite spawn_tree_corner3 = new Sprite(16,3,4, SpriteSheet.spawnLevel);
+    public static Sprite spawn_tree_corner4 = new Sprite(16,4,4, SpriteSheet.spawnLevel);
+    
+    //---------------- WATER ---------------------------------------------------
+    
+    //---------------- GRASS ---------------------------------------------------
+    
+    //---------------- SAND ----------------------------------------------------
     public static Sprite spawn_grass = new Sprite(16, 1, 0, SpriteSheet.spawnLevel);
     public static Sprite spawn_flower = new Sprite(16, 2, 0, SpriteSheet.spawnLevel);
     public static Sprite spawn_water = new Sprite(16, 0, 1, SpriteSheet.spawnLevel);
