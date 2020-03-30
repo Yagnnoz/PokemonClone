@@ -14,6 +14,13 @@ public abstract class Mob extends Entity {
     protected boolean moving = false;
 
     public void move(int xa, int ya) {
+        
+        if(xa != 0 && ya != 0){ //auf 2 achsen bewegen (diagonal)
+            move(xa,0);
+            move(0, ya);
+            return; //wichtig, da die Methode sonst nicht abgebrochen wird!
+        }
+        
         if (xa > 0) {
             dir = 1;
         }
