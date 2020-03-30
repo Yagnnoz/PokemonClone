@@ -36,16 +36,16 @@ public class Player extends Mob {
             animate = 0;
         }
         if (input.up) {
-            ya--;
+            ya-=2;
         }
         if (input.down) {
-            ya++;
+            ya+=2;
         }
         if (input.left) {
-            xa--;
+            xa-=2;
         }
         if (input.right) {
-            xa++;
+            xa+=2;
         }
 
         if (xa != 0 || ya != 0) {
