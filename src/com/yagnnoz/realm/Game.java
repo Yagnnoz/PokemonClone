@@ -1,6 +1,7 @@
 package com.yagnnoz.realm;
 
 import com.yagnnoz.realm.entity.mob.Player;
+import com.yagnnoz.realm.graphics.Menu;
 import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.input.*;
 import com.yagnnoz.realm.level.Level;
@@ -20,22 +21,28 @@ import javax.swing.JFrame;
  * @author Jens
  */
 public class Game extends Canvas implements Runnable {
-    
+
+    public enum GAMESTATE {
+        MENU, GAME
+    };
+
     private static final long serialVersionUID = 1L;
-    
+
     public static int width = 300;
     public static int height = width / 16 * 9;      //16:9 format
     public static int scale = 3;
-    
+
     private Thread gameThread;
     private JFrame frame;
     private Keyboard key;
     private Level level;
     private Player player;
     private boolean running = false;
-    
+    private Menu menu;
+    private GAMESTATE state;
+
     private Screen screen;
-    
+
     private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB); //creating an image
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();        //accessing the image & modify
 
@@ -50,18 +57,20 @@ public class Game extends Canvas implements Runnable {
         player = new Player(playerSpawn.getX(), playerSpawn.getY(), key);
         player.init(level);
         addKeyListener(key);
+        menu = new Menu();
         Mouse mouse = new Mouse();
         addMouseListener(mouse);
         addMouseMotionListener(mouse);
-        
+        state = GAMESTATE.MENU;
+
     }
-    
+
     public synchronized void start() {
         running = true;
         gameThread = new Thread(this, "Display");
         gameThread.start();
     }
-    
+
     public synchronized void stop() {
         running = false;
         try {
@@ -70,7 +79,7 @@ public class Game extends Canvas implements Runnable {
             ex.printStackTrace();
         }
     }
-    
+
     @Override
     public void run() {
         long lastTime = System.nanoTime();
@@ -79,7 +88,7 @@ public class Game extends Canvas implements Runnable {
         double delta = 0;
         int frames = 0;
         int updates = 0;
-        
+
         while (running) {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
@@ -91,7 +100,7 @@ public class Game extends Canvas implements Runnable {
             }
             render();
             frames++;
-            
+
             if (System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
                 frame.setTitle("RAIN | UPS: " + updates + ", FPS: " + frames);
@@ -100,7 +109,7 @@ public class Game extends Canvas implements Runnable {
             }
         }
     }
-    
+
     public static void main(String[] args) {
         Game game = new Game();
         game.frame.setResizable(false);
@@ -112,12 +121,14 @@ public class Game extends Canvas implements Runnable {
         game.frame.setVisible(true);
         game.start();
     }
-    
+
     private void update() {
-        key.update();
-        player.update();
+        if (state == GAMESTATE.GAME) {
+            key.update();
+            player.update();
+        }
     }
-    
+
     private void render() {
         BufferStrategy bs = getBufferStrategy();
         if (bs == null) {
@@ -126,22 +137,27 @@ public class Game extends Canvas implements Runnable {
             return;
         }
         screen.clear();
-        int xScroll = player.x - screen.width / 2;
-        int yScroll = player.y - screen.height / 2; //centering the player
-        level.render(xScroll, yScroll, screen);
-        player.render(screen);
-        
-        for (int i = 0; i < pixels.length; i++) {
-            pixels[i] = screen.pixels[i];
-        }
-        
         Graphics g = bs.getDrawGraphics();
-        //Graphic stuff goes here
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
-        
+
+        if (state == GAMESTATE.GAME) {
+            int xScroll = player.x - screen.width / 2;
+            int yScroll = player.y - screen.height / 2; //centering the player
+            level.render(xScroll, yScroll, screen);
+            player.render(screen);
+
+            for (int i = 0; i < pixels.length; i++) {
+                pixels[i] = screen.pixels[i];
+            }
+
+        } else if (state == GAMESTATE.MENU) {
+            menu.render(screen, g);
+        }
+
+        //Graphic stuff goes here
         g.setFont(new Font("Calibri", 0, 50));
         g.dispose();
         bs.show();
     }
-    
+
 }

@@ -77,6 +77,13 @@ public class Screen {
             }
         }
     }
+    
+    public void renderMenu(){
+        for(int px:pixels){
+            pixels[px] = 0xFF000000;
+        }
+        
+    }
 
     public void setOffset(int xOffset, int yOffset) {
         this.xOffset = xOffset;
