@@ -38,6 +38,12 @@ public class FightHandler {
         ownPokemon = game.getTeam().get(0);
         //figure out the enemy (wild) pokemon
         double rnd = Math.random();
-        for(int i = 0; i<game.getLevel().SpawnRate)
+        for(int i = 0; i<game.getLevel().getSpawnrate().size()-1; i++){
+            if(i==0){
+                if(rnd <= game.getLevel().getSpawnrate().get(0)){
+                    
+                }
+            }
+        }
     }
 }
