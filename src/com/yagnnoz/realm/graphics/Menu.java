@@ -1,6 +1,7 @@
 package com.yagnnoz.realm.graphics;
 
 import com.yagnnoz.realm.Game;
+import com.yagnnoz.realm.input.Mouse;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -12,6 +13,12 @@ import java.awt.Rectangle;
  * @author Jens
  */
 public class Menu {
+    
+    private final Mouse mouse;
+    
+    public Menu(Mouse mouse){
+        this.mouse = mouse;
+    }
 
     private final Rectangle playButton = new Rectangle((Game.width*Game.scale) / 2 -50, 200, 100, 50);
     private final Rectangle helpButton = new Rectangle((Game.width*Game.scale) / 2 -50, 300, 100, 50);
@@ -19,6 +26,7 @@ public class Menu {
     
 
     public void render(Screen screen, Graphics g) {
+        screen.clear();
         screen.renderMenu();
         g.setColor(Color.WHITE);
         g.setFont(new Font("Calibri", 0, 25));
@@ -34,6 +42,17 @@ public class Menu {
         
         g.setFont(new Font("Calibri", 0, 45));
         g2d.drawString("POKEMONKLON V5", (Game.width*Game.scale)/4+50, 75);
+    }
+
+    public void update() {
+       if(Mouse.getButton() == 1){
+           if((Mouse.getX()>= playButton.getX() && (Mouse.getX() <= playButton.getX()+100)) &&(Mouse.getY()>=playButton.getY()) && Mouse.getY()<=playButton.getY()+50){
+               Game.changeGameState("GAME");
+           }
+           if((Mouse.getX()>= quitButton.getX() && (Mouse.getX() <= quitButton.getX()+100)) &&(Mouse.getY()>=quitButton.getY()) && Mouse.getY()<=quitButton.getY()+50){
+               Game.changeGameState("END");
+           }
+       }
     }
 
 }

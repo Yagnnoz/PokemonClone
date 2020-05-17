@@ -78,6 +78,13 @@ public class Screen {
         }
     }
     
+    public void renderBattlefield(){
+        //white BG
+        for (int i = 0; i<pixels.length; i++){
+            pixels[i] = 0xFFFFFFFF;
+        }
+    }
+    
     public void renderMenu(){
         for(int px:pixels){
             pixels[px] = 0xFF000000;

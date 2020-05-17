@@ -10,13 +10,14 @@ import java.awt.event.KeyListener;
 public class Keyboard implements KeyListener {
 
     private boolean[] keys = new boolean[KeyEvent.KEY_LAST];
-    public boolean up, down, left, right;
+    public boolean up, down, left, right, esc;
 
     public void update() {
         up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_W];
         left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_A];
         down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
         right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D];
+        esc = keys[KeyEvent.VK_ESCAPE];
     }
 
     @Override

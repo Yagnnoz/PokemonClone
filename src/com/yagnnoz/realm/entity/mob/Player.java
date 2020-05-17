@@ -14,6 +14,7 @@ public class Player extends Mob {
     private Sprite sprite;
     private int animate = 0;
     private boolean walking = false;
+    public int oldX, oldY;
 
     public Player(Keyboard input) {
         this.input = input;
@@ -29,6 +30,8 @@ public class Player extends Mob {
 
     @Override
     public void update() {
+        oldX = x;
+        oldY = y;
         int xa = 0, ya = 0;
         if (animate < 7500) {
             animate++;
@@ -105,6 +108,25 @@ public class Player extends Mob {
 
         screen.renderPlayer(x - 16, y - 16, sprite);
 
+    }
+    
+    
+    // Division by 16 to convert from PX to Tile
+    public int getTileX(){
+        return x/16;
+    }
+    public int getTileY(){
+        return y/16;
+    }
+    public int getOldTileX(){
+        return oldX/16;
+    }
+    public int getOldTileY(){
+        return oldY/16;
+    }
+    
+    public boolean isWalking(){
+        return walking;
     }
 
 }

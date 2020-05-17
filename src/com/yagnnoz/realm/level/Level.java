@@ -2,6 +2,7 @@ package com.yagnnoz.realm.level;
 
 import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.level.tile.Tile;
+import java.util.List;
 
 /**
  *
@@ -12,6 +13,12 @@ public class Level {
     protected int width, height;
     protected int[] tilesInt;
     protected int[] tiles;
+
+    protected List<String> spawns;
+    protected List<Double> spawnrate;
+
+    protected int minLvl;
+    protected int maxLvl;
 
     public static Level spawn = new Level("/levels/spawn.png");
 
@@ -173,6 +180,14 @@ public class Level {
             default:
                 return Tile.voidTile;
         }
+    }
+
+    public List<Double> getSpawnrate() {
+        return spawnrate;
+    }
+
+    public List<String> getSpawns() {
+        return spawns;
     }
 
 }
