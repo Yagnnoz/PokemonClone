@@ -2,6 +2,8 @@ package com.yagnnoz.realm.level;
 
 import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.level.tile.Tile;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -26,11 +28,16 @@ public class Level {
         this.width = width;
         this.height = height;
         tilesInt = new int[width * height];
+        spawns = new ArrayList<>();
+        
         generateLevel();
+        
     }
 
     public Level(String path) {
         loadLevel(path);
+        spawns = new ArrayList<>();
+        spawnrate = new ArrayList<>();
         generateLevel();
     }
 
