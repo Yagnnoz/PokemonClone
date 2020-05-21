@@ -8,6 +8,7 @@ public class Hornliu extends Pokemon{
     
     public Hornliu(int level){
         super(level);
+        setName("Hornliu");
     }
     
 }
