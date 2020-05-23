@@ -70,4 +70,7 @@ public abstract class Pokemon {
         sprite = backSprites.get((animateBack / animationSpeed) % NUMBER_FRAMES_BACK_ANIM);
         screen.renderPokemon(150, 200, sprite);
     }
+    
+    protected abstract void setFrontsprites();
+    protected abstract void setBacksprites();
 }
