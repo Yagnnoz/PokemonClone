@@ -171,7 +171,8 @@ public class Hornliu extends Pokemon {
         NUMBER_FRAMES_BACK_ANIM = backSprites.size();
     }
 
-    private void setFrontsprites() {
+    @Override
+    protected void setFrontsprites() {
         frontSprites.add(hornliuFrontAnimation1);
         frontSprites.add(hornliuFrontAnimation2);
         frontSprites.add(hornliuFrontAnimation3);
@@ -182,7 +183,6 @@ public class Hornliu extends Pokemon {
         frontSprites.add(hornliuFrontAnimation8);
         frontSprites.add(hornliuFrontAnimation9);
         frontSprites.add(hornliuFrontAnimation10);
-
         frontSprites.add(hornliuFrontAnimation11);
         frontSprites.add(hornliuFrontAnimation12);
         frontSprites.add(hornliuFrontAnimation13);
@@ -193,7 +193,6 @@ public class Hornliu extends Pokemon {
         frontSprites.add(hornliuFrontAnimation18);
         frontSprites.add(hornliuFrontAnimation19);
         frontSprites.add(hornliuFrontAnimation20);
-
         frontSprites.add(hornliuFrontAnimation21);
         frontSprites.add(hornliuFrontAnimation22);
         frontSprites.add(hornliuFrontAnimation23);
@@ -204,7 +203,6 @@ public class Hornliu extends Pokemon {
         frontSprites.add(hornliuFrontAnimation28);
         frontSprites.add(hornliuFrontAnimation29);
         frontSprites.add(hornliuFrontAnimation30);
-
         frontSprites.add(hornliuFrontAnimation31);
         frontSprites.add(hornliuFrontAnimation32);
         frontSprites.add(hornliuFrontAnimation33);
@@ -215,7 +213,6 @@ public class Hornliu extends Pokemon {
         frontSprites.add(hornliuFrontAnimation38);
         frontSprites.add(hornliuFrontAnimation39);
         frontSprites.add(hornliuFrontAnimation40);
-
         frontSprites.add(hornliuFrontAnimation41);
         frontSprites.add(hornliuFrontAnimation42);
         frontSprites.add(hornliuFrontAnimation43);
@@ -226,7 +223,6 @@ public class Hornliu extends Pokemon {
         frontSprites.add(hornliuFrontAnimation48);
         frontSprites.add(hornliuFrontAnimation49);
         frontSprites.add(hornliuFrontAnimation50);
-
         frontSprites.add(hornliuFrontAnimation51);
         frontSprites.add(hornliuFrontAnimation52);
         frontSprites.add(hornliuFrontAnimation53);
@@ -238,7 +234,8 @@ public class Hornliu extends Pokemon {
         frontSprites.add(hornliuFrontAnimation59);
     }
 
-    private void setBacksprites() {
+    @Override
+    protected void setBacksprites() {
         backSprites.add(hornliuBackAnimation1);
         backSprites.add(hornliuBackAnimation2);
         backSprites.add(hornliuBackAnimation3);
@@ -249,7 +246,6 @@ public class Hornliu extends Pokemon {
         backSprites.add(hornliuBackAnimation8);
         backSprites.add(hornliuBackAnimation9);
         backSprites.add(hornliuBackAnimation10);
-
         backSprites.add(hornliuBackAnimation11);
         backSprites.add(hornliuBackAnimation12);
         backSprites.add(hornliuBackAnimation13);
@@ -260,7 +256,6 @@ public class Hornliu extends Pokemon {
         backSprites.add(hornliuBackAnimation18);
         backSprites.add(hornliuBackAnimation19);
         backSprites.add(hornliuBackAnimation20);
-
         backSprites.add(hornliuBackAnimation21);
         backSprites.add(hornliuBackAnimation22);
         backSprites.add(hornliuBackAnimation23);
@@ -271,7 +266,6 @@ public class Hornliu extends Pokemon {
         backSprites.add(hornliuBackAnimation28);
         backSprites.add(hornliuBackAnimation29);
         backSprites.add(hornliuBackAnimation30);
-
         backSprites.add(hornliuBackAnimation30);
         backSprites.add(hornliuBackAnimation31);
         backSprites.add(hornliuBackAnimation32);
@@ -282,7 +276,6 @@ public class Hornliu extends Pokemon {
         backSprites.add(hornliuBackAnimation37);
         backSprites.add(hornliuBackAnimation38);
         backSprites.add(hornliuBackAnimation40);
-
         backSprites.add(hornliuBackAnimation41);
         backSprites.add(hornliuBackAnimation42);
         backSprites.add(hornliuBackAnimation43);
@@ -293,7 +286,6 @@ public class Hornliu extends Pokemon {
         backSprites.add(hornliuBackAnimation48);
         backSprites.add(hornliuBackAnimation49);
         backSprites.add(hornliuBackAnimation50);
-
         backSprites.add(hornliuBackAnimation51);
         backSprites.add(hornliuBackAnimation52);
         backSprites.add(hornliuBackAnimation53);
@@ -304,7 +296,6 @@ public class Hornliu extends Pokemon {
         backSprites.add(hornliuBackAnimation58);
         backSprites.add(hornliuBackAnimation59);
         backSprites.add(hornliuBackAnimation60);
-
         backSprites.add(hornliuBackAnimation61);
         backSprites.add(hornliuBackAnimation62);
         backSprites.add(hornliuBackAnimation63);
