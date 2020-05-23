@@ -160,6 +160,7 @@ public class Game extends Canvas implements Runnable {
         key.update();
         if (null != state) {
             switch (state) {
+
                 case GAME:
                     player.update();
                     if (key.esc) {
@@ -167,17 +168,22 @@ public class Game extends Canvas implements Runnable {
                     }
                     checkGrassforWildPkmn();
                     break;
+
                 case MENU:
                     menu.update();
                     break;
+
                 case FIGHT:
                     fight.update();
                     if (key.b) {
                         changeGameState("GAME");
                     }
                     break;
+
                 case END:
                     System.exit(0);
+                    break;
+
                 default:
                     break;
             }
@@ -220,7 +226,8 @@ public class Game extends Canvas implements Runnable {
                 fightScreen.renderBattlefield();
 
                 if (fight.getOpponent() != null) {
-                    fight.getOpponent().render(fightScreen);
+                    fight.getOpponent().renderOpponent(fightScreen);
+                    fight.getOwn().renderOwnPokemon(fightScreen);
                 } else {
                     changeGameState("GAME");
                 }
