@@ -13,8 +13,9 @@ public abstract class Pokemon {
     int level;
     String name;
     protected List<Sprite> frontSprites;
+    protected List<Sprite> backSprites;
     private int animate = 0;
-    private Sprite sprite;
+    private Sprite frontsprite, backsprite;
 
     Pokemon(int level) {
         this.level = level;
@@ -51,7 +52,7 @@ public abstract class Pokemon {
 
     public void render(Screen screen) { 
         
-        sprite = frontSprites.get(animate/2);
-        screen.renderPokemon(200, 20, sprite);
+        frontsprite = frontSprites.get(animate/2);
+        screen.renderPokemon(600, 60, frontsprite);
     }
 }
