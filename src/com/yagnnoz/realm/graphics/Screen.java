@@ -21,12 +21,6 @@ public class Screen {
         this.width = width;
         this.height = height;
         pixels = new int[width * height];
-
-        //fills tiles with random colors.
-        for (int i = 0; i < MAP_SIZE * MAP_SIZE; i++) {
-            tiles[i] = rdm.nextInt(0xffffff);
-        }
-        tiles[0] = 0x000000;
     }
 
     public void clear() {
@@ -82,7 +76,7 @@ public class Screen {
         for (int y = 0; y < sprite.SIZE; y++) {
             for (int x = 0; x < sprite.SIZE; x++) {
                 int colour = sprite.pixels[x + y * sprite.SIZE];
-                if (colour != 0xFFFF00FF) {
+                if (colour != 0x00FFFFFF) {
                     pixels[(xPos + x) + (yPos + y) * width] = colour;
                 }
             }
