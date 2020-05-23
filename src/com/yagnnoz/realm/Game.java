@@ -7,7 +7,6 @@ import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.input.*;
 import com.yagnnoz.realm.level.Level;
 import com.yagnnoz.realm.level.Route1;
-import com.yagnnoz.realm.level.SpawnLevel;
 import com.yagnnoz.realm.level.TileCoordinate;
 import com.yagnnoz.realm.level.tile.Tile;
 import com.yagnnoz.realm.pokemon.Hornliu;
@@ -37,6 +36,7 @@ public class Game extends Canvas implements Runnable {
     public static int width = 300;
     public static int height = width / 16 * 9;      //16:9 format
     public static int scale = 3;
+    public static double scaleFight = 2.65;
     public static GAMESTATE state;
 
     private Thread gameThread;
@@ -49,17 +49,23 @@ public class Game extends Canvas implements Runnable {
     private Mouse mouse;
 
     private Screen screen;
+    private Screen fightScreen;
     FightHandler fight = new FightHandler(this);
 
     private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB); //creating an image
+    private BufferedImage fightImage = new BufferedImage((int) (width * scaleFight), (int) (height * scaleFight), BufferedImage.TYPE_INT_RGB);
+
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();        //accessing the image & modify
-    
+    private int[] fightPixels = ((DataBufferInt) fightImage.getRaster().getDataBuffer()).getData();
+
     public static List<Pokemon> team = new LinkedList<>();
 
     public Game() {
         Dimension size = new Dimension(width * scale, height * scale);
         setPreferredSize(size);
         screen = new Screen(width, height);
+        fightScreen = new Screen((int) (width * scaleFight), (int) (height * scaleFight));
+
         frame = new JFrame();
         key = new Keyboard();
         mouse = new Mouse();
@@ -72,7 +78,7 @@ public class Game extends Canvas implements Runnable {
         addMouseMotionListener(mouse);
         addKeyListener(key);
         menu = new Menu(mouse);
-        
+
         state = GAMESTATE.MENU;
         team.add(new Hornliu(5));
 
@@ -186,11 +192,12 @@ public class Game extends Canvas implements Runnable {
             return;
         }
         screen.clear();
+        fightScreen.clear();
         Graphics g = bs.getDrawGraphics();
-        g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 
         switch (state) {
             case GAME:
+                g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
                 int xScroll = player.x - screen.width / 2;
                 int yScroll = player.y - screen.height / 2; //centering the player
                 level.render(xScroll, yScroll, screen);
@@ -199,18 +206,30 @@ public class Game extends Canvas implements Runnable {
                     pixels[i] = screen.pixels[i];
                 }
                 break;
+
             case MENU:
+                g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
                 menu.render(screen, g);
                 for (int i = 0; i < pixels.length; i++) {
                     pixels[i] = screen.pixels[i];
                 }
                 break;
+
             case FIGHT:
-                screen.renderBattlefield();
-                for (int i = 0; i < pixels.length; i++) {
-                    pixels[i] = screen.pixels[i];
+                g.drawImage(fightImage, 0, 0, getWidth(), getHeight(), null);
+                fightScreen.renderBattlefield();
+
+                if (fight.getOpponent() != null) {
+                    fight.getOpponent().render(fightScreen);
+                } else {
+                    changeGameState("GAME");
                 }
-                break;
+
+                for (int i = 0; i < fightPixels.length; i++) {
+                    fightPixels[i] = fightScreen.pixels[i];
+                    fightPixels[0] = 0xFF000000;
+                }
+
             default:
                 break;
         }
@@ -218,6 +237,7 @@ public class Game extends Canvas implements Runnable {
         //Graphic stuff goes here
         g.setFont(new Font("Calibri", 0, 50));
         g.dispose();
+
         bs.show();
     }
 
@@ -242,11 +262,12 @@ public class Game extends Canvas implements Runnable {
         }
 
     }
-    
-    public List<Pokemon> getTeam(){
+
+    public List<Pokemon> getTeam() {
         return team;
     }
-    public Level getLevel(){
+
+    public Level getLevel() {
         return level;
     }
 
