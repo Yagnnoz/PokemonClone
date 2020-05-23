@@ -33,9 +33,13 @@ public class FightHandler {
     }
 
     void update() {
-        if(opponent == null && ownPokemon == null){
+        if (opponent == null && ownPokemon == null) {
             startFight();
+        } else {
+            opponent.update();
+            ownPokemon.update();
         }
+
     }
 
     public void startFight() {
@@ -44,18 +48,27 @@ public class FightHandler {
         //figure out the enemy (wild) pokemon
         double rnd = Math.random();
         System.out.println(rnd);
-        for(int i = 0; i<game.getLevel().getSpawnrate().size(); i++){
-            if(i==0){
-                if(rnd <= game.getLevel().getSpawnrate().get(0)){
+        for (int i = 0; i < game.getLevel().getSpawnrate().size(); i++) {
+            if (i == 0) {
+                if (rnd <= game.getLevel().getSpawnrate().get(0)) {
                     opponent = factory.makePokemon(game.getLevel().getSpawns().get(i), 2);
+
                 }
-            }else{
-                if(rnd <= game.getLevel().getSpawnrate().get(i)  && (rnd > game.getLevel().getSpawnrate().get(i-1))){
+            } else {
+                if (rnd <= game.getLevel().getSpawnrate().get(i) && (rnd > game.getLevel().getSpawnrate().get(i - 1))) {
                     opponent = factory.makePokemon(game.getLevel().getSpawns().get(i), 2);
                 }
             }
         }
-        
-        System.out.println(opponent.toString() + " LvL: "+ opponent.getLevel()); //sollte Hornliu lvl 2 sein
+
+        System.out.println(opponent.toString() + " LvL: " + opponent.getLevel());
+    }
+
+    public Pokemon getOpponent() {
+        return opponent;
+    }
+
+    public Pokemon getOwn() {
+        return ownPokemon;
     }
 }
