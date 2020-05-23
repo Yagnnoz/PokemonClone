@@ -62,7 +62,7 @@ public class Screen {
             int yAbs = y + yPos;
             for (int x = 0; x < 32; x++) {
                 int xAbs = x + xPos;
-             
+
                 if (xAbs < -32 || xAbs >= width || yAbs < 0 || yAbs >= height) {
                     break;
                 }
@@ -77,19 +77,30 @@ public class Screen {
             }
         }
     }
-    
-    public void renderBattlefield(){
+
+    public void renderPokemon(int xPos, int yPos, Sprite sprite) {
+        for (int y = 0; y < sprite.SIZE; y++) {
+            for (int x = 0; x < sprite.SIZE; x++) {
+                int colour = sprite.pixels[x + y * sprite.SIZE];
+                if (colour != 0xFFFF00FF) {
+                    pixels[(xPos + x) + (yPos + y) * width] = colour;
+                }
+            }
+        }
+    }
+
+    public void renderBattlefield() {
         //white BG
-        for (int i = 0; i<pixels.length; i++){
+        for (int i = 0; i < pixels.length; i++) {
             pixels[i] = 0xFFFFFFFF;
         }
     }
-    
-    public void renderMenu(){
-        for(int px:pixels){
+
+    public void renderMenu() {
+        for (int px : pixels) {
             pixels[px] = 0xFF000000;
         }
-        
+
     }
 
     public void setOffset(int xOffset, int yOffset) {
