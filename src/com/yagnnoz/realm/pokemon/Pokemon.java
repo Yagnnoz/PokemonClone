@@ -14,8 +14,12 @@ public abstract class Pokemon {
     String name;
     protected List<Sprite> frontSprites;
     protected List<Sprite> backSprites;
-    private int animate = 0;
-    private Sprite frontsprite, backsprite;
+    private int animateFront = 0;
+    public int animateBack = 0;
+    private int animationSpeed = 2;
+    private Sprite sprite;
+    public int NUMBER_FRAMES_FRONT_ANIM;
+    public int NUMBER_FRAMES_BACK_ANIM;
 
     Pokemon(int level) {
         this.level = level;
@@ -43,16 +47,27 @@ public abstract class Pokemon {
     }
 
     public void update() {
-        if (animate < 116) {
-            animate++;
+        if (animateFront < NUMBER_FRAMES_FRONT_ANIM * animationSpeed) {
+            animateFront++;
         } else {
-            animate = 0;
+            animateFront = 0;
+        }
+
+        if (animateBack < NUMBER_FRAMES_BACK_ANIM * animationSpeed) {
+            animateBack++;
+        } else {
+            animateBack = 0;
         }
     }
 
-    public void render(Screen screen) { 
-        
-        frontsprite = frontSprites.get(animate/2);
-        screen.renderPokemon(600, 60, frontsprite);
+    public void renderOpponent(Screen screen) {
+
+        sprite = frontSprites.get((animateFront / animationSpeed) % NUMBER_FRAMES_FRONT_ANIM);
+        screen.renderPokemon(600, 60, sprite);
+    }
+
+    public void renderOwnPokemon(Screen screen) {
+        sprite = backSprites.get((animateBack / animationSpeed) % NUMBER_FRAMES_BACK_ANIM);
+        screen.renderPokemon(150, 200, sprite);
     }
 }
