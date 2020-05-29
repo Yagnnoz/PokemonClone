@@ -4,6 +4,7 @@ import com.yagnnoz.realm.pokemon.Pokemon;
 import com.yagnnoz.realm.entity.mob.Player;
 import com.yagnnoz.realm.graphics.Menu;
 import com.yagnnoz.realm.graphics.Screen;
+import com.yagnnoz.realm.graphics.Sprite;
 import com.yagnnoz.realm.input.*;
 import com.yagnnoz.realm.level.Level;
 import com.yagnnoz.realm.level.Route1;
@@ -208,6 +209,9 @@ public class Game extends Canvas implements Runnable {
                 int yScroll = player.y - screen.height / 2; //centering the player
                 level.render(xScroll, yScroll, screen);
                 player.render(screen);
+                Sprite spriteTest = new Sprite(80,80,0xFFFF0055);
+                screen.renderSprite(80, 80, spriteTest , false);
+                
                 for (int i = 0; i < pixels.length; i++) {
                     pixels[i] = screen.pixels[i];
                 }

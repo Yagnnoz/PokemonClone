@@ -29,6 +29,23 @@ public class Screen {
         }
     }
 
+    public void renderSprite(int xPos, int yPos, Sprite sprite, boolean fixedPos) {
+        if (fixedPos) {
+            xPos -= xOffset;
+            yPos -= yOffset;
+        }
+        for (int y = 0; y < sprite.getHeight(); y++) {
+            int ya = y + yPos;
+            for (int x = 0; x < sprite.getWidth(); x++) {
+                int xa = x + xPos;
+                if (xa < 0 || xa >= width || ya < 0 || ya >= height) {
+                    continue;
+                }
+                pixels[x + y * width] = sprite.pixels[x + y * sprite.getWidth()];
+            }
+        }
+    }
+
     public void renderTile(int xPos, int yPos, Tile tile) {
 
         xPos -= xOffset;
@@ -84,6 +101,7 @@ public class Screen {
     }
 
     public void renderBattlefield() {
+
         //white BG
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] = 0xFFFFFFFF;

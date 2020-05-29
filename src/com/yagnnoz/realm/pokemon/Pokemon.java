@@ -63,14 +63,20 @@ public abstract class Pokemon {
     public void renderOpponent(Screen screen) {
 
         sprite = frontSprites.get((animateFront / animationSpeed) % NUMBER_FRAMES_FRONT_ANIM);
-        screen.renderPokemon(600, 60, sprite);
+        screen.renderPokemon(550, 100, sprite);
     }
 
     public void renderOwnPokemon(Screen screen) {
         sprite = backSprites.get((animateBack / animationSpeed) % NUMBER_FRAMES_BACK_ANIM);
-        screen.renderPokemon(150, 200, sprite);
+        screen.renderPokemon(200, 250, sprite);
     }
-    
+
+    public void renderOwnPokemonAt(Screen screen, int posX, int posY) {
+        sprite = backSprites.get((animateBack / animationSpeed) % NUMBER_FRAMES_BACK_ANIM);
+        screen.renderPokemon(posX, posY, sprite);
+    }
+
     protected abstract void setFrontsprites();
+
     protected abstract void setBacksprites();
 }

@@ -1,7 +1,12 @@
 package com.yagnnoz.realm;
 
+import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.pokemon.Pokemon;
 import com.yagnnoz.realm.pokemon.PokemonFactory;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 /**
  *
@@ -13,6 +18,7 @@ public class FightHandler {
     private Pokemon ownPokemon;
     private final Game game;
     private PokemonFactory factory;
+    private final Rectangle Kampf = new Rectangle((Game.width * Game.scale) - 150, 300, 100, 50);
 
     FightHandler(Game game) {
         this.game = game;
@@ -70,5 +76,14 @@ public class FightHandler {
 
     public Pokemon getOwn() {
         return ownPokemon;
+    }
+    
+    public void render(Screen screen, Graphics g){
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(Color.RED);
+        
+        
+        
+        g2d.draw(Kampf);
     }
 }
