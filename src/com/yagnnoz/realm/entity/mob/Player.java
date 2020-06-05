@@ -3,6 +3,9 @@ package com.yagnnoz.realm.entity.mob;
 import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.graphics.Sprite;
 import com.yagnnoz.realm.input.Keyboard;
+import com.yagnnoz.realm.pokemon.Pokemon;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -11,14 +14,17 @@ import com.yagnnoz.realm.input.Keyboard;
 public class Player extends Mob {
 
     private Keyboard input;
-    private Sprite sprite;
-    private int animate = 0;
-    private boolean walking = false;
+    protected Sprite sprite;
+    protected int animate = 0;
+    protected boolean walking = false;
     public int oldX, oldY;
+    protected List<Pokemon> team;
+    
 
     public Player(Keyboard input) {
         this.input = input;
         this.sprite = Sprite.player_up;
+        team = new ArrayList<>();
     }
 
     public Player(int x, int y, Keyboard input) {
@@ -26,6 +32,7 @@ public class Player extends Mob {
         this.y = y;
         this.input = input;
         this.sprite = Sprite.player_up;
+        team = new ArrayList<>();
     }
 
     @Override
@@ -127,6 +134,16 @@ public class Player extends Mob {
     
     public boolean isWalking(){
         return walking;
+    }
+    
+    public void addPokemon(Pokemon pkmn){
+        if(team.size() > 5){
+        }else{
+            team.add(pkmn);
+        }
+    }
+    public Pokemon getPokemonFromTeam(int index){
+        return team.get(index);
     }
 
 }

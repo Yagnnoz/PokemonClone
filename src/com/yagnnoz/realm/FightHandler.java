@@ -1,5 +1,6 @@
 package com.yagnnoz.realm;
 
+import com.yagnnoz.realm.entity.mob.Player;
 import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.pokemon.Pokemon;
 import com.yagnnoz.realm.pokemon.PokemonFactory;
@@ -18,6 +19,7 @@ public class FightHandler {
     private Pokemon ownPokemon;
     private final Game game;
     private PokemonFactory factory;
+    private Player player;
     private final Rectangle Kampf = new Rectangle((Game.width * Game.scale) - 150, 300, 100, 50);
 
     FightHandler(Game game) {
@@ -50,7 +52,7 @@ public class FightHandler {
 
     public void startFight() {
         //set own pokemon
-        ownPokemon = game.getTeam().get(0);
+        ownPokemon = player.getPokemonFromTeam(0);
         //figure out the enemy (wild) pokemon
         double rnd = Math.random();
         System.out.println(rnd);
@@ -85,5 +87,9 @@ public class FightHandler {
         
         
         g2d.draw(Kampf);
+    }
+    
+    public void setPlayer(Player pc){
+        this.player = pc;
     }
 }

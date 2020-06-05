@@ -2,15 +2,15 @@ package com.yagnnoz.realm;
 
 import com.yagnnoz.realm.pokemon.Pokemon;
 import com.yagnnoz.realm.entity.mob.Player;
+import com.yagnnoz.realm.entity.mob.Trainer;
 import com.yagnnoz.realm.graphics.Menu;
 import com.yagnnoz.realm.graphics.Screen;
-import com.yagnnoz.realm.graphics.Sprite;
 import com.yagnnoz.realm.input.*;
 import com.yagnnoz.realm.level.Level;
 import com.yagnnoz.realm.level.Route1;
 import com.yagnnoz.realm.level.TileCoordinate;
 import com.yagnnoz.realm.level.tile.Tile;
-import com.yagnnoz.realm.pokemon.Hornliu;
+import com.yagnnoz.realm.pokemon.Pikachu;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -18,7 +18,6 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-import java.util.LinkedList;
 import java.util.List;
 import javax.swing.JFrame;
 
@@ -51,15 +50,13 @@ public class Game extends Canvas implements Runnable {
 
     private Screen screen;
     private Screen fightScreen;
-    FightHandler fight = new FightHandler(this);
+    FightHandler fight;
 
     private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB); //creating an image
     private BufferedImage fightImage = new BufferedImage((int) (width * scaleFight), (int) (height * scaleFight), BufferedImage.TYPE_INT_RGB);
 
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();        //accessing the image & modify
     private int[] fightPixels = ((DataBufferInt) fightImage.getRaster().getDataBuffer()).getData();
-
-    public static List<Pokemon> team = new LinkedList<>();
 
     public Game() {
         Dimension size = new Dimension(width * scale, height * scale);
@@ -74,6 +71,9 @@ public class Game extends Canvas implements Runnable {
         TileCoordinate playerSpawn = new TileCoordinate(11, 4);
         player = new Player(playerSpawn.getX(), playerSpawn.getY(), key);
         player.init(level);
+        player.addPokemon(new Pikachu(4));
+        fight = new FightHandler(this);
+        fight.setPlayer(player);
 
         addMouseListener(mouse);
         addMouseMotionListener(mouse);
@@ -81,7 +81,6 @@ public class Game extends Canvas implements Runnable {
         menu = new Menu(mouse);
 
         state = GAMESTATE.MENU;
-        team.add(new Hornliu(5));
 
     }
 
@@ -209,9 +208,6 @@ public class Game extends Canvas implements Runnable {
                 int yScroll = player.y - screen.height / 2; //centering the player
                 level.render(xScroll, yScroll, screen);
                 player.render(screen);
-                Sprite spriteTest = new Sprite(80,80,0xFFFF0055);
-                screen.renderSprite(80, 80, spriteTest , false);
-                
                 for (int i = 0; i < pixels.length; i++) {
                     pixels[i] = screen.pixels[i];
                 }
@@ -269,10 +265,6 @@ public class Game extends Canvas implements Runnable {
             }
         }
 
-    }
-
-    public List<Pokemon> getTeam() {
-        return team;
     }
 
     public Level getLevel() {
