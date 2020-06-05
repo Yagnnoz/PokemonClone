@@ -22,6 +22,7 @@ public class SpriteSheet {
     public static SpriteSheet PikachuBack = new SpriteSheet("/PokemonSprites/PikachuBack.png", 520);
     public static SpriteSheet RattfratzFront = new SpriteSheet("/PokemonSprites/RattfratzFront.png", 512);
     public static SpriteSheet RattfratzBack = new SpriteSheet("/PokemonSprites/RattfratzBack.png", 512);
+    
 
     public SpriteSheet(String path, int size) {
         this.path = path;

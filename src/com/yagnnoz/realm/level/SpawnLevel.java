@@ -1,5 +1,6 @@
 package com.yagnnoz.realm.level;
 
+import com.yagnnoz.realm.entity.mob.Trainer;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -10,6 +11,8 @@ import java.io.IOException;
  */
 public class SpawnLevel extends Level {
 
+ 
+    
     public SpawnLevel(String path) {
         super(path);
     }
