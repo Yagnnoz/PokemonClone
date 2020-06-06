@@ -57,6 +57,13 @@ public abstract class Mob extends Entity {
             if (level.getTile(xt, yt).solid()) {
                 solid = true;
             }
+            
+            //loop durch NPCs und Trainer
+            for(int i = 0; i<level.getTrainers().size(); i++){
+                if((level.getTrainers().get(i).getTileX() == xt) && (level.getTrainers().get(i).getTileY() == yt)){
+                    solid = true;
+                }
+            }
         }
 
         return solid;
