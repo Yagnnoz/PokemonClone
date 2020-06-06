@@ -208,6 +208,13 @@ public class Game extends Canvas implements Runnable {
                 int yScroll = player.y - screen.height / 2; //centering the player
                 level.render(xScroll, yScroll, screen);
                 player.render(screen);
+                
+                //rendering NPCs now, so that the player can walk behind them
+                if(!level.getTrainers().isEmpty()){
+                    for(int i = 0; i< level.getTrainers().size(); i++){
+                        level.getTrainers().get(i).render(screen);
+                    }
+                }
                 for (int i = 0; i < pixels.length; i++) {
                     pixels[i] = screen.pixels[i];
                 }
