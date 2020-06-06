@@ -1,10 +1,10 @@
 package com.yagnnoz.realm.level;
 
+import com.yagnnoz.realm.entity.Entity;
 import com.yagnnoz.realm.entity.mob.Trainer;
 import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.level.tile.Tile;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -23,7 +23,8 @@ public class Level {
     protected int minLvl;
     protected int maxLvl;
 
-    protected Trainer t1;
+    protected List<Entity> npcs;
+    protected List<Trainer> enemyTrainer;
 
     public static Level spawn = new Level("/levels/spawn.png");
 
@@ -78,10 +79,6 @@ public class Level {
                 getTile(x, y).render(x, y, screen);
 
             }
-        }
-        
-        if(t1 != null){
-            t1.render(screen);
         }
     }
 
@@ -202,6 +199,10 @@ public class Level {
 
     public List<String> getSpawns() {
         return spawns;
+    }
+    
+    public List<Trainer> getTrainers(){
+        return enemyTrainer;
     }
 
 }
