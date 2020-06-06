@@ -2,6 +2,7 @@ package com.yagnnoz.realm.entity.mob;
 
 import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.graphics.Sprite;
+import com.yagnnoz.realm.level.TileCoordinate;
 import java.util.ArrayList;
 
 /**
@@ -15,6 +16,13 @@ public class Trainer extends Player {
         this.sprite = Sprite.trainer_left;
         team = new ArrayList<>();
         dir = 1;
+    }
+    
+    public Trainer(TileCoordinate tc, int dir){
+        super(tc.getX(), tc.getY(), null);
+        this.sprite = Sprite.trainer_left;
+        team = new ArrayList<>();
+        this.dir = dir;
     }
     
     
