@@ -145,5 +145,9 @@ public class Player extends Mob {
     public Pokemon getPokemonFromTeam(int index){
         return team.get(index);
     }
+    
+    public int getDir(){
+        return dir;
+    }
 
 }

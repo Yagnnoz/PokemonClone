@@ -166,7 +166,11 @@ public class Game extends Canvas implements Runnable {
                     if (key.esc) {
                         changeGameState("MENU");
                     }
+                    if (key.e) {
+                        checkForInteraction();
+                    }
                     checkGrassforWildPkmn();
+
                     break;
 
                 case MENU:
@@ -208,10 +212,10 @@ public class Game extends Canvas implements Runnable {
                 int yScroll = player.y - screen.height / 2; //centering the player
                 level.render(xScroll, yScroll, screen);
                 player.render(screen);
-                
+
                 //rendering NPCs now, so that the player can walk behind them
-                if(!level.getTrainers().isEmpty()){
-                    for(int i = 0; i< level.getTrainers().size(); i++){
+                if (!level.getTrainers().isEmpty()) {
+                    for (int i = 0; i < level.getTrainers().size(); i++) {
                         level.getTrainers().get(i).render(screen);
                     }
                 }
@@ -235,7 +239,7 @@ public class Game extends Canvas implements Runnable {
 
                 fight.getOpponent().renderOpponent(fightScreen);
                 fight.getOwn().renderOwnPokemon(fightScreen);
-                
+
                 for (int i = 0; i < fightPixels.length; i++) {
                     fightPixels[i] = fightScreen.pixels[i];
                 }
@@ -245,8 +249,7 @@ public class Game extends Canvas implements Runnable {
         }
 
         //Graphic stuff goes here
-        g.setFont(
-                new Font("Calibri", 0, 50));
+        g.setFont(new Font("Calibri", 0, 50));
         g.dispose();
 
         bs.show();
@@ -271,7 +274,44 @@ public class Game extends Canvas implements Runnable {
 
             }
         }
+    }
 
+    private void checkForInteraction() {
+        switch (player.getDir()) { //direction. 0 north, 1 east, 2 south, 3 west
+            case 0:
+                for (int i = 0; i < level.getTrainers().size(); i++) {
+                    if (level.getTrainers().get(i).getTileX() == player.getTileX() && level.getTrainers().get(i).getTileY() == player.getTileY() - 1) {
+                        changeGameState("FIGHT");
+                        fight.startTrainerFight(level.getTrainers().get(i));
+                    }
+                }
+                break;
+            case 1:
+                for (int i = 0; i < level.getTrainers().size(); i++) {
+                    if (level.getTrainers().get(i).getTileX() == player.getTileX()+1 && level.getTrainers().get(i).getTileY() == player.getTileY()) {
+                        changeGameState("FIGHT");
+                        fight.startTrainerFight(level.getTrainers().get(i));
+                    }
+                }
+                break;
+            case 2:
+                for (int i = 0; i < level.getTrainers().size(); i++) {
+                    if (level.getTrainers().get(i).getTileX() == player.getTileX() && level.getTrainers().get(i).getTileY() == player.getTileY() + 1) {
+                        changeGameState("FIGHT");
+                        fight.startTrainerFight(level.getTrainers().get(i));
+                    }
+                }
+                break;
+            case 3:
+                for (int i = 0; i < level.getTrainers().size(); i++) {
+                    if (level.getTrainers().get(i).getTileX() == player.getTileX()-1 && level.getTrainers().get(i).getTileY() == player.getTileY()) {
+                        changeGameState("FIGHT");
+                        fight.startTrainerFight(level.getTrainers().get(i));
+                    }
+                }
+                break;
+
+        }
     }
 
     public Level getLevel() {

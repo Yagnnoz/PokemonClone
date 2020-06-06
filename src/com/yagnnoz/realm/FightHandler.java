@@ -1,6 +1,7 @@
 package com.yagnnoz.realm;
 
 import com.yagnnoz.realm.entity.mob.Player;
+import com.yagnnoz.realm.entity.mob.Trainer;
 import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.pokemon.Pokemon;
 import com.yagnnoz.realm.pokemon.PokemonFactory;
@@ -69,6 +70,14 @@ public class FightHandler {
             }
         }
 
+        System.out.println(opponent.toString() + " LvL: " + opponent.getLevel());
+    }
+    
+    public void startTrainerFight(Trainer t1){
+        //own PKMN: 
+        ownPokemon = player.getPokemonFromTeam(0);
+        //enemy Pokemon:
+        opponent = t1.getPokemonFromTeam(0);
         System.out.println(opponent.toString() + " LvL: " + opponent.getLevel());
     }
 
