@@ -6,7 +6,7 @@ package com.yagnnoz.realm.pokemon;
  */
 public class PokemonFactory {
     
-    public Pokemon makePokemon(String name, int Lvl){
+    public static Pokemon makePokemon(String name, int Lvl){
         Pokemon result = null;
         
         switch (name){

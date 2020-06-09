@@ -11,6 +11,7 @@ import com.yagnnoz.realm.level.Route1;
 import com.yagnnoz.realm.level.TileCoordinate;
 import com.yagnnoz.realm.level.tile.Tile;
 import com.yagnnoz.realm.pokemon.Pikachu;
+import com.yagnnoz.realm.pokemon.PokemonFactory;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -71,7 +72,7 @@ public class Game extends Canvas implements Runnable {
         TileCoordinate playerSpawn = new TileCoordinate(11, 4);
         player = new Player(playerSpawn.getX(), playerSpawn.getY(), key);
         player.init(level);
-        player.addPokemon(new Pikachu(4));
+        player.addPokemon(PokemonFactory.makePokemon("Pikachu", 5));
         fight = new FightHandler(this);
         fight.setPlayer(player);
 

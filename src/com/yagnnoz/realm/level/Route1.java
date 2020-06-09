@@ -1,6 +1,7 @@
 package com.yagnnoz.realm.level;
 
 import com.yagnnoz.realm.entity.mob.Trainer;
+import com.yagnnoz.realm.pokemon.PokemonFactory;
 import com.yagnnoz.realm.pokemon.Rattfratz;
 import java.util.ArrayList;
 
@@ -31,7 +32,7 @@ public class Route1 extends SpawnLevel {
         enemyTrainer = new ArrayList<>();
         
         Trainer t1 = new Trainer(trainerSpawn, 1);
-        t1.addPokemon(new Rattfratz(2));
+        t1.addPokemon(PokemonFactory.makePokemon("Hornliu", 2));
         
         enemyTrainer.add(t1);
         
