@@ -11,6 +11,8 @@ import java.util.ArrayList;
 public class Rattfratz extends Pokemon {
 
     private static final int SPRITE_SIZE = 64;
+    
+    //<editor-fold desc="Sprites">
 
     //---------------------------------------------------------------------------------------------------//
     //----------------------------------------- FRONT ---------------------------------------------------//
@@ -75,6 +77,8 @@ public class Rattfratz extends Pokemon {
     public static Sprite RattfratzBack24 = new Sprite(SPRITE_SIZE, 7, 2, SpriteSheet.RattfratzBack);
 
     public static Sprite RattfratzBack25 = new Sprite(SPRITE_SIZE, 0, 3, SpriteSheet.RattfratzBack);
+    
+    //</editor-fold>
 
     public Rattfratz(int level) {
         super(level);

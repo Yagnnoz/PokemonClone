@@ -9,19 +9,20 @@ import java.util.List;
  * @author Jens
  */
 public abstract class Pokemon {
-
+    //TODO: spriteSheets in eine Datei pro Pokemon packen?
     int level;
     String name;
     protected List<Sprite> frontSprites;
     protected List<Sprite> backSprites;
     private int animateFront = 0;
     public int animateBack = 0;
-    private int animationSpeed = 2;
+    private final int animationSpeed;
     private Sprite sprite;
     public int NUMBER_FRAMES_FRONT_ANIM;
     public int NUMBER_FRAMES_BACK_ANIM;
 
     Pokemon(int level) {
+        this.animationSpeed = 2;
         this.level = level;
     }
 
