@@ -1,7 +1,7 @@
 package com.yagnnoz.realm.level;
 
 import com.yagnnoz.realm.entity.mob.Trainer;
-import com.yagnnoz.realm.pokemon.Rattfratz;
+import com.yagnnoz.realm.pokemon.Hornliu;
 import java.util.ArrayList;
 
 /**
@@ -17,7 +17,7 @@ public class Route1 extends SpawnLevel {
         minLvl = 1;
         maxLvl = 4;
         
-        TileCoordinate trainerSpawn = new TileCoordinate(3, 3);
+        TileCoordinate trainerSpawn = new TileCoordinate(2, 3);
         
         spawns.add("Hornliu");
         spawnrate.add(0.4);
@@ -31,9 +31,10 @@ public class Route1 extends SpawnLevel {
         enemyTrainer = new ArrayList<>();
         
         Trainer t1 = new Trainer(trainerSpawn, 1);
-        t1.addPokemon(new Rattfratz(2));
+        t1.addPokemon(new Hornliu(2));
         
         enemyTrainer.add(t1);
+        System.out.println(t1.x / 16 + ", "+ t1.y / 16);
         
     }
 
