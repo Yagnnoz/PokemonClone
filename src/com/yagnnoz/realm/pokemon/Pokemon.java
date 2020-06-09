@@ -9,7 +9,7 @@ import java.util.List;
  * @author Jens
  */
 public abstract class Pokemon {
-
+    //TODO: spriteSheets in eine Datei pro Pokemon packen?
     int level;
     String name;
     protected List<Sprite> frontSprites;
