@@ -123,13 +123,13 @@ public class Player extends Mob {
         return x/16;
     }
     public int getTileY(){
-        return y/16;
+        return (y+8)/16;
     }
     public int getOldTileX(){
         return oldX/16;
     }
     public int getOldTileY(){
-        return oldY/16;
+        return (oldY+8)/16;
     }
     
     public boolean isWalking(){
