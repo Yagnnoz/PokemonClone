@@ -19,7 +19,7 @@ public class Trainer extends Player {
     }
     
     public Trainer(TileCoordinate tc, int dir){
-        super(tc.getX(), tc.getY(), null);
+        super(tc.getX()+8, tc.getY(), null); //+8: half of a tile
         this.sprite = Sprite.trainer_left;
         team = new ArrayList<>();
         this.dir = dir;
