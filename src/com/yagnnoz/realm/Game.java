@@ -15,6 +15,7 @@ import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -168,6 +169,9 @@ public class Game extends Canvas implements Runnable {
                     }
                     if (key.e) {
                         checkForInteraction();
+                    }
+                    if(key.f){
+                        System.out.println("PLayer TILEPOS: X: "+player.getTileX()+ " , Y: "+ player.getTileY());
                     }
                     checkGrassforWildPkmn();
 
