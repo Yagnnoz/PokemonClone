@@ -12,10 +12,11 @@ public class Hornliu extends Pokemon {
 
     private static final int SPRITE_SIZE = 64;
 
+    //<editor-fold desc="Sprites">
     //---------------------------------------------------------------------------------------------------//
     //----------------------------------------- FRONT ---------------------------------------------------//
     //---------------------------------------------------------------------------------------------------//
-    
+     
     public static Sprite hornliuFrontAnimation1 = new Sprite(SPRITE_SIZE, 0, 0, SpriteSheet.HornliuFront);
     public static Sprite hornliuFrontAnimation2 = new Sprite(SPRITE_SIZE, 1, 0, SpriteSheet.HornliuFront);
     public static Sprite hornliuFrontAnimation3 = new Sprite(SPRITE_SIZE, 2, 0, SpriteSheet.HornliuFront);
@@ -157,18 +158,23 @@ public class Hornliu extends Pokemon {
     public static Sprite hornliuBackAnimation61 = new Sprite(SPRITE_SIZE, 4, 7, SpriteSheet.HornliuBack);
     public static Sprite hornliuBackAnimation62 = new Sprite(SPRITE_SIZE, 5, 7, SpriteSheet.HornliuBack);
     public static Sprite hornliuBackAnimation63 = new Sprite(SPRITE_SIZE, 6, 7, SpriteSheet.HornliuBack);
-
+    
+    //</editor-fold>
+    
     public Hornliu(int level) {
         super(level);
         setName("Hornliu");
         frontSprites = new ArrayList<>();
         backSprites = new ArrayList<>();
-
-        setFrontsprites();
-        setBacksprites();
+        setSprites();
         
         NUMBER_FRAMES_FRONT_ANIM = frontSprites.size();
         NUMBER_FRAMES_BACK_ANIM = backSprites.size();
+    }
+    
+    private void setSprites(){
+        setFrontsprites();
+        setBacksprites();
     }
 
     @Override
