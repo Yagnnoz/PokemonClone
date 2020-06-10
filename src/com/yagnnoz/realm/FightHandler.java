@@ -19,13 +19,11 @@ public class FightHandler {
     private Pokemon opponent;
     private Pokemon ownPokemon;
     private final Game game;
-    private PokemonFactory factory;
     private Player player;
     private final Rectangle Kampf = new Rectangle((Game.width * Game.scale) - 150, 300, 100, 50);
 
     FightHandler(Game game) {
         this.game = game;
-        factory = new PokemonFactory();
     }
 
     public void setOpponent(Pokemon pkmn) {
@@ -60,12 +58,12 @@ public class FightHandler {
         for (int i = 0; i < game.getLevel().getSpawnrate().size(); i++) {
             if (i == 0) {
                 if (rnd <= game.getLevel().getSpawnrate().get(0)) {
-                    opponent = factory.makePokemon(game.getLevel().getSpawns().get(i), 2);
+                    opponent = PokemonFactory.makePokemon(game.getLevel().getSpawns().get(i), 2);
 
                 }
             } else {
                 if (rnd <= game.getLevel().getSpawnrate().get(i) && (rnd > game.getLevel().getSpawnrate().get(i - 1))) {
-                    opponent = factory.makePokemon(game.getLevel().getSpawns().get(i), 2);
+                    opponent = PokemonFactory.makePokemon(game.getLevel().getSpawns().get(i), 2);
                 }
             }
         }
@@ -92,9 +90,6 @@ public class FightHandler {
     public void render(Screen screen, Graphics g){
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(Color.RED);
-        
-        
-        
         g2d.draw(Kampf);
     }
     
