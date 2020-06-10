@@ -13,7 +13,6 @@ public class Pikachu extends Pokemon {
     private static final int SPRITE_SIZE = 64;
 
     //<editor-fold desc="Sprites">
-    
     //---------------------------------------------------------------------------------------------------//
     //----------------------------------------- FRONT ---------------------------------------------------//
     //---------------------------------------------------------------------------------------------------//
@@ -99,15 +98,13 @@ public class Pikachu extends Pokemon {
     public static Sprite PikachuBack35 = new Sprite(SPRITE_SIZE + 1, 2, 4, SpriteSheet.PikachuBack);
 
     //</editor-fold>
-    
     public Pikachu(int level) {
         super(level);
         setName("Pikachu");
         frontSprites = new ArrayList<>();
         backSprites = new ArrayList<>();
-        
-        setFrontsprites();
-        setBacksprites();
+
+        setSprites();
 
         NUMBER_FRAMES_FRONT_ANIM = frontSprites.size();
         NUMBER_FRAMES_BACK_ANIM = backSprites.size();

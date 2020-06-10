@@ -22,7 +22,7 @@ public abstract class Pokemon {
     public int NUMBER_FRAMES_BACK_ANIM;
 
     Pokemon(int level) {
-        this.animationSpeed = 2;
+        this.animationSpeed = 3;
         this.level = level;
     }
 
@@ -80,4 +80,9 @@ public abstract class Pokemon {
     protected abstract void setFrontsprites();
 
     protected abstract void setBacksprites();
+    
+    protected void setSprites(){
+        setFrontsprites();
+        setBacksprites();
+    }
 }

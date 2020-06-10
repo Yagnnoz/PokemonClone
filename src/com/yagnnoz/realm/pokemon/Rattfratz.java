@@ -86,9 +86,8 @@ public class Rattfratz extends Pokemon {
 
         frontSprites = new ArrayList<>();
         backSprites = new ArrayList<>();
-
-        setFrontsprites();
-        setBacksprites();
+        
+        setSprites();
 
         NUMBER_FRAMES_FRONT_ANIM = frontSprites.size();
         NUMBER_FRAMES_BACK_ANIM = backSprites.size();
