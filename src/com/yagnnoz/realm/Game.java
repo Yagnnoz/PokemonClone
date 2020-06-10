@@ -1,8 +1,6 @@
 package com.yagnnoz.realm;
 
-import com.yagnnoz.realm.pokemon.Pokemon;
 import com.yagnnoz.realm.entity.mob.Player;
-import com.yagnnoz.realm.entity.mob.Trainer;
 import com.yagnnoz.realm.graphics.Menu;
 import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.input.*;
@@ -10,17 +8,14 @@ import com.yagnnoz.realm.level.Level;
 import com.yagnnoz.realm.level.Route1;
 import com.yagnnoz.realm.level.TileCoordinate;
 import com.yagnnoz.realm.level.tile.Tile;
-import com.yagnnoz.realm.pokemon.Pikachu;
 import com.yagnnoz.realm.pokemon.PokemonFactory;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-import java.util.List;
 import javax.swing.JFrame;
 
 /**
