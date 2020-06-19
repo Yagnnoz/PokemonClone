@@ -10,7 +10,7 @@ public class PokemonFactory {
         Pokemon result = null;
 
         switch (name) {
-            /*
+            
             //<editor-fold desc="GEN_1">
             case "Bisasam":
                 result = new Bisasam(Lvl);
@@ -21,7 +21,7 @@ public class PokemonFactory {
             case "Bisaflor":
                 result = new Bisaflor(Lvl);
                 break;
-            
+         /*   
             case "Glumanda":
                 result = new Glumanda(Lvl);
                 break;
