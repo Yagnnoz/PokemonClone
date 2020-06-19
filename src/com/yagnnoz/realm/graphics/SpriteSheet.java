@@ -16,13 +16,19 @@ public class SpriteSheet {
 
     public static SpriteSheet tiles = new SpriteSheet("/textures/SpriteSheet.png", 256);
     public static SpriteSheet spawnLevel = new SpriteSheet("/textures/sheets/Spawn.png", 160);
+
+    
+    public static SpriteSheet BisaknospFront = new SpriteSheet("/PokemonSprites/BisaknospFront.png", 588);
+    public static SpriteSheet BisaknospBack = new SpriteSheet("/PokemonSprites/BisaknospBack.png", 608);
+    public static SpriteSheet BisaflowFront = new SpriteSheet("/PokemonSprites/BisaflorFront.png", 848);
+    public static SpriteSheet BisaflowBack = new SpriteSheet("/PokemonSprites/BisaflorBack.png", 760);
+
     public static SpriteSheet HornliuFront = new SpriteSheet("/PokemonSprites/HornliuFront.png", 512);
     public static SpriteSheet HornliuBack = new SpriteSheet("/PokemonSprites/HornliuBack.png", 512);
     public static SpriteSheet PikachuFront = new SpriteSheet("/PokemonSprites/PikachuFront.png", 512);
     public static SpriteSheet PikachuBack = new SpriteSheet("/PokemonSprites/PikachuBack.png", 520);
     public static SpriteSheet RattfratzFront = new SpriteSheet("/PokemonSprites/RattfratzFront.png", 512);
     public static SpriteSheet RattfratzBack = new SpriteSheet("/PokemonSprites/RattfratzBack.png", 512);
-    
 
     public SpriteSheet(String path, int size) {
         this.path = path;

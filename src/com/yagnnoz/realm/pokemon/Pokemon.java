@@ -22,7 +22,7 @@ public abstract class Pokemon {
     public int NUMBER_FRAMES_BACK_ANIM;
 
     Pokemon(int level) {
-        this.animationSpeed = 3;
+        this.animationSpeed = 2;
         this.level = level;
     }
 
@@ -64,12 +64,14 @@ public abstract class Pokemon {
     public void renderOpponent(Screen screen) {
 
         sprite = frontSprites.get((animateFront / animationSpeed) % NUMBER_FRAMES_FRONT_ANIM);
-        screen.renderPokemon(550, 100, sprite);
+       // screen.renderPokemon(550, 100, sprite);
+       screen.renderSprite(500, 100, sprite, false);
     }
 
     public void renderOwnPokemon(Screen screen) {
         sprite = backSprites.get((animateBack / animationSpeed) % NUMBER_FRAMES_BACK_ANIM);
-        screen.renderPokemon(200, 250, sprite);
+        screen.renderSprite(150, 250, sprite, false);
+        //screen.renderPokemon(200, 250, sprite);
     }
 
     public void renderOwnPokemonAt(Screen screen, int posX, int posY) {
@@ -81,7 +83,10 @@ public abstract class Pokemon {
 
     protected abstract void setBacksprites();
     
+    protected abstract void initSprites();
+    
     protected void setSprites(){
+        initSprites();
         setFrontsprites();
         setBacksprites();
     }
