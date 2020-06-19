@@ -35,7 +35,7 @@ public class Route1 extends SpawnLevel {
         Trainer t1 = new Trainer(trainerSpawn, 1);
 
 
-        t1.addPokemon(PokemonFactory.makePokemon("Rattfratz", 2));
+        t1.addPokemon(PokemonFactory.makePokemon("Bisasam", 2));
         
         enemyTrainer.add(t1);
         System.out.println(t1.x / 16 + ", "+ t1.y / 16);

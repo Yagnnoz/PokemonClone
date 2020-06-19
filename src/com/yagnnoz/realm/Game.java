@@ -68,7 +68,7 @@ public class Game extends Canvas implements Runnable {
         TileCoordinate playerSpawn = new TileCoordinate(11, 4);
         player = new Player(playerSpawn.getX(), playerSpawn.getY(), key);
         player.init(level);
-        player.addPokemon(PokemonFactory.makePokemon("Pikachu", 5));
+        player.addPokemon(PokemonFactory.makePokemon("Bisasam", 5));
         fight = new FightHandler(this);
         fight.setPlayer(player);
 
@@ -236,7 +236,7 @@ public class Game extends Canvas implements Runnable {
                 g.drawImage(fightImage, 0, 0, getWidth(), getHeight(), null);
                 fightScreen.renderBattlefield();
                 fight.render(fightScreen, g);
-
+                
                 fight.getOpponent().renderOpponent(fightScreen);
                 fight.getOwn().renderOwnPokemon(fightScreen);
 
