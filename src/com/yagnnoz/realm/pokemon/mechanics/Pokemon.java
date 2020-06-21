@@ -135,7 +135,7 @@ public abstract class Pokemon {
         
         int gelernteAttacken = 0;
         for (int i = AtkPerLvl.size(); i > 0; i--) {
-            if (gelernteAttacken == 3) {
+            if (gelernteAttacken > 3) {
                 break;
             }
             if (level >= AtkPerLvl.get(i-1).getReqLvl()) {
