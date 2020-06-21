@@ -12,6 +12,14 @@ public class AttackenFactory {
         switch (name){
             case "Tackle":
                 result = new Tackle();
+                break;
+            case "Fadenschuss":
+                result = new Fadenschuss();
+                break;
+            case "Feuersturm":
+                result = new Feuersturm();
+                break;
+                
         }
         
         return result;
