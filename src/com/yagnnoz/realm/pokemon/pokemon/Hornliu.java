@@ -325,9 +325,12 @@ public final class Hornliu extends Pokemon {
 
     @Override
     protected void populateAttackList() {
-        AtkPerLvl.add(new AttackenEntry("Feuersturm", 10));
+
         AtkPerLvl.add(new AttackenEntry("Tackle", 2));
         AtkPerLvl.add(new AttackenEntry("Fadenschuss", 2));
+        AtkPerLvl.add(new AttackenEntry("Giftstachel", 7));
+        AtkPerLvl.add(new AttackenEntry("Feuersturm", 10));
+        AtkPerLvl.add(new AttackenEntry("Hydropumpe", 14));
 
     }
 

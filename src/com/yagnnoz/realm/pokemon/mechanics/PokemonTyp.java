@@ -7,7 +7,7 @@ package com.yagnnoz.realm.pokemon.mechanics;
 public class PokemonTyp {
 
     public enum TYP {
-        NORMAL, FEUER, WASSER, ELEKTRO, PLANZE, KÄFER
+        NORMAL, FEUER, WASSER, ELEKTRO, PLANZE, KÄFER, GIFT
     };
 
 }

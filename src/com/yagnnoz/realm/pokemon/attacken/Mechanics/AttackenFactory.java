@@ -3,6 +3,8 @@ package com.yagnnoz.realm.pokemon.attacken.Mechanics;
 import com.yagnnoz.realm.pokemon.attacken.attacken.Tackle;
 import com.yagnnoz.realm.pokemon.attacken.attacken.Feuersturm;
 import com.yagnnoz.realm.pokemon.attacken.attacken.Fadenschuss;
+import com.yagnnoz.realm.pokemon.attacken.attacken.Giftstachel;
+import com.yagnnoz.realm.pokemon.attacken.attacken.Hydropumpe;
 
 /**
  *
@@ -23,7 +25,12 @@ public class AttackenFactory {
             case "Feuersturm":
                 result = new Feuersturm();
                 break;
-                
+            case "Giftstachel":
+                result = new Giftstachel();
+                break;
+            case "Hydropumpe":
+                result = new Hydropumpe();
+                break;                
         }
         
         return result;
