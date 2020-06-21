@@ -3,7 +3,7 @@ package com.yagnnoz.realm.entity.mob;
 import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.graphics.Sprite;
 import com.yagnnoz.realm.input.Keyboard;
-import com.yagnnoz.realm.pokemon.Pokemon;
+import com.yagnnoz.realm.pokemon.mechanics.Pokemon;
 import java.util.ArrayList;
 import java.util.List;
 

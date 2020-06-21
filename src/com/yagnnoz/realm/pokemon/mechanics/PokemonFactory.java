@@ -1,4 +1,11 @@
-package com.yagnnoz.realm.pokemon;
+package com.yagnnoz.realm.pokemon.mechanics;
+
+import com.yagnnoz.realm.pokemon.pokemon.Bisaflor;
+import com.yagnnoz.realm.pokemon.pokemon.Bisaknosp;
+import com.yagnnoz.realm.pokemon.pokemon.Bisasam;
+import com.yagnnoz.realm.pokemon.pokemon.Hornliu;
+import com.yagnnoz.realm.pokemon.pokemon.Pikachu;
+import com.yagnnoz.realm.pokemon.pokemon.Rattfratz;
 
 /**
  *

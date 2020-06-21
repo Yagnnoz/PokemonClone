@@ -1,4 +1,8 @@
-package com.yagnnoz.realm.pokemon.attacken;
+package com.yagnnoz.realm.pokemon.attacken.Mechanics;
+
+import com.yagnnoz.realm.pokemon.attacken.attacken.Tackle;
+import com.yagnnoz.realm.pokemon.attacken.attacken.Feuersturm;
+import com.yagnnoz.realm.pokemon.attacken.attacken.Fadenschuss;
 
 /**
  *

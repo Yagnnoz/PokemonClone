@@ -1,8 +1,9 @@
-package com.yagnnoz.realm.pokemon;
+package com.yagnnoz.realm.pokemon.pokemon;
 
+import com.yagnnoz.realm.pokemon.mechanics.Pokemon;
 import com.yagnnoz.realm.graphics.Sprite;
 import com.yagnnoz.realm.graphics.SpriteSheet;
-import com.yagnnoz.realm.pokemon.attacken.AttackenEntry;
+import com.yagnnoz.realm.pokemon.attacken.Mechanics.AttackenEntry;
 import java.util.ArrayList;
 
 /**
@@ -118,7 +119,7 @@ public final class Hornliu extends Pokemon {
         NUMBER_FRAMES_FRONT_ANIM = frontSprites.size();
         NUMBER_FRAMES_BACK_ANIM = backSprites.size();
         populateAttackList();
-        setAttacks(4);
+        setAttacks(15);
     }
 
     @Override

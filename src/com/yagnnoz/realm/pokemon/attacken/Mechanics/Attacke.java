@@ -1,4 +1,4 @@
-package com.yagnnoz.realm.pokemon.attacken;
+package com.yagnnoz.realm.pokemon.attacken.Mechanics;
 
 import com.yagnnoz.realm.pokemon.mechanics.PokemonTyp;
 

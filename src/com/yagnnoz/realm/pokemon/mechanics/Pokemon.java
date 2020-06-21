@@ -1,10 +1,10 @@
-package com.yagnnoz.realm.pokemon;
+package com.yagnnoz.realm.pokemon.mechanics;
 
 import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.graphics.Sprite;
-import com.yagnnoz.realm.pokemon.attacken.Attacke;
-import com.yagnnoz.realm.pokemon.attacken.AttackenEntry;
-import com.yagnnoz.realm.pokemon.attacken.AttackenFactory;
+import com.yagnnoz.realm.pokemon.attacken.Mechanics.Attacke;
+import com.yagnnoz.realm.pokemon.attacken.Mechanics.AttackenEntry;
+import com.yagnnoz.realm.pokemon.attacken.Mechanics.AttackenFactory;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -32,7 +32,7 @@ public abstract class Pokemon {
     //Attacken
     private Attacke[] Attacken;
 
-    Pokemon(int level) {
+    public Pokemon(int level) {
         this.animationSpeed = 2;
         this.level = level;
         Attacken = new Attacke[4];
@@ -146,14 +146,14 @@ public abstract class Pokemon {
 
         /*
         Debug: Output ATK Array
-         
+           */
         System.out.println("gelernte Attacken: ");
         for (int i = 0; i < Attacken.length; i++) {
             if (Attacken[i] != null) {
                 System.out.println(Attacken[i].toString());
             }
         }
-        */
+      
     }
 
 }

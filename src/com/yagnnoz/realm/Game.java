@@ -8,7 +8,7 @@ import com.yagnnoz.realm.level.Level;
 import com.yagnnoz.realm.level.Route1;
 import com.yagnnoz.realm.level.TileCoordinate;
 import com.yagnnoz.realm.level.tile.Tile;
-import com.yagnnoz.realm.pokemon.PokemonFactory;
+import com.yagnnoz.realm.pokemon.mechanics.PokemonFactory;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Font;

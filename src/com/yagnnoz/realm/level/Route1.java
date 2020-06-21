@@ -3,7 +3,7 @@ package com.yagnnoz.realm.level;
 import com.yagnnoz.realm.entity.mob.Trainer;
 
 
-import com.yagnnoz.realm.pokemon.PokemonFactory;
+import com.yagnnoz.realm.pokemon.mechanics.PokemonFactory;
 import java.util.ArrayList;
 
 /**

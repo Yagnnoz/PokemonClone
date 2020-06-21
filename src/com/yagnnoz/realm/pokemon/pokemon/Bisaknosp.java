@@ -1,5 +1,6 @@
-package com.yagnnoz.realm.pokemon;
+package com.yagnnoz.realm.pokemon.pokemon;
 
+import com.yagnnoz.realm.pokemon.mechanics.Pokemon;
 import com.yagnnoz.realm.graphics.Sprite;
 import com.yagnnoz.realm.graphics.SpriteSheet;
 import java.util.ArrayList;
