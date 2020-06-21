@@ -6,20 +6,20 @@ import com.yagnnoz.realm.pokemon.mechanics.PokemonTyp;
  *
  * @author Jens
  */
-public class Tackle extends Attacke {
+public class Feuersturm extends Attacke {
 
-    public Tackle() {
-        str = 30;
-        acc = 100;
-        typ = PokemonTyp.TYP.NORMAL;
-        stdPP = 15;
-        maxPP = 25;
+    public Feuersturm() {
+        str = 90;
+        acc = 75;
+        typ = PokemonTyp.TYP.FEUER;
+        stdPP = 5;
+        maxPP = 8;
         currPP = stdPP;
     }
 
     @Override
     public String toString() {
-        return "Tackle";
+        return "Feuersturm";
     }
-
+    
 }

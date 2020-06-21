@@ -6,12 +6,12 @@ import com.yagnnoz.realm.pokemon.mechanics.PokemonTyp;
  *
  * @author Jens
  */
-public class Tackle extends Attacke {
+public class Fadenschuss extends Attacke {
 
-    public Tackle() {
-        str = 30;
+    public Fadenschuss() {
+        str = 0;
         acc = 100;
-        typ = PokemonTyp.TYP.NORMAL;
+        typ = PokemonTyp.TYP.KÄFER;
         stdPP = 15;
         maxPP = 25;
         currPP = stdPP;
@@ -19,7 +19,7 @@ public class Tackle extends Attacke {
 
     @Override
     public String toString() {
-        return "Tackle";
+        return "Fadenschuss";
     }
-
+    
 }
