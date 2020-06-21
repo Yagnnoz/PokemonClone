@@ -253,4 +253,9 @@ public class Bisasam extends Pokemon {
 
     }
 
+    @Override
+    protected void populateAttackList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

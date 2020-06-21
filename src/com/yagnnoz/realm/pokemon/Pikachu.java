@@ -186,4 +186,14 @@ public class Pikachu extends Pokemon {
         backSprites.add(PikachuBack34);
         backSprites.add(PikachuBack35);
     }
+
+    @Override
+    protected void initSprites() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void populateAttackList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

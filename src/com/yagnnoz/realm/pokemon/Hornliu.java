@@ -2,6 +2,7 @@ package com.yagnnoz.realm.pokemon;
 
 import com.yagnnoz.realm.graphics.Sprite;
 import com.yagnnoz.realm.graphics.SpriteSheet;
+import com.yagnnoz.realm.pokemon.attacken.AttackenEntry;
 import java.util.ArrayList;
 
 /**
@@ -317,6 +318,13 @@ public class Hornliu extends Pokemon {
         hornliuFront57 = new Sprite(SPRITE_SIZE, 0, 7, SpriteSheet.HornliuFront);
         hornliuFront58 = new Sprite(SPRITE_SIZE, 1, 7, SpriteSheet.HornliuFront);
         hornliuFront59 = new Sprite(SPRITE_SIZE, 2, 7, SpriteSheet.HornliuFront);
+    }
+
+    @Override
+    protected void populateAttackList() {
+        AtkPerLvl.add(new AttackenEntry("Tackle", 2));
+        AtkPerLvl.add(new AttackenEntry("Fadenschuss", 2));
+        AtkPerLvl.add(new AttackenEntry("Feuersturm", 10));
     }
 
 }

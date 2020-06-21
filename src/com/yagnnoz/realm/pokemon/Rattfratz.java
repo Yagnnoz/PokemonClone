@@ -150,4 +150,18 @@ public class Rattfratz extends Pokemon {
         backSprites.add(RattfratzBack24);
         backSprites.add(RattfratzBack25);
     }
+
+    @Override
+    protected void initSprites() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void populateAttackList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    //TODO: 
+    //INIT SPRITES!!
 }

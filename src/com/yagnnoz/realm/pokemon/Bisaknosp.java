@@ -42,8 +42,8 @@ public class Bisaknosp extends Pokemon {
             bisaknospBack45, bisaknospBack46, bisaknospBack47, bisaknospBack48,
             bisaknospBack49, bisaknospBack50, bisaknospBack51, bisaknospBack52,
             bisaknospBack53;
-    //</editor-fold>
 
+    //</editor-fold>
     public SpriteSheet bisaknospFront;
     public SpriteSheet bisaknospBack;
 
@@ -57,116 +57,6 @@ public class Bisaknosp extends Pokemon {
 
         NUMBER_FRAMES_FRONT_ANIM = frontSprites.size();
         NUMBER_FRAMES_BACK_ANIM = backSprites.size();
-    }
-
-    @Override
-    protected void setFrontsprites() {
-        frontSprites.add(bisaknospFront1);
-        frontSprites.add(bisaknospFront2);
-        frontSprites.add(bisaknospFront3);
-        frontSprites.add(bisaknospFront4);
-        frontSprites.add(bisaknospFront5);
-        frontSprites.add(bisaknospFront6);
-        frontSprites.add(bisaknospFront7);
-        frontSprites.add(bisaknospFront8);
-        frontSprites.add(bisaknospFront9);
-        frontSprites.add(bisaknospFront10);
-        frontSprites.add(bisaknospFront11);
-        frontSprites.add(bisaknospFront12);
-        frontSprites.add(bisaknospFront13);
-        frontSprites.add(bisaknospFront14);
-        frontSprites.add(bisaknospFront15);
-        frontSprites.add(bisaknospFront16);
-        frontSprites.add(bisaknospFront17);
-        frontSprites.add(bisaknospFront18);
-        frontSprites.add(bisaknospFront19);
-        frontSprites.add(bisaknospFront20);
-        frontSprites.add(bisaknospFront21);
-        frontSprites.add(bisaknospFront22);
-        frontSprites.add(bisaknospFront23);
-        frontSprites.add(bisaknospFront24);
-        frontSprites.add(bisaknospFront25);
-        frontSprites.add(bisaknospFront26);
-        frontSprites.add(bisaknospFront27);
-        frontSprites.add(bisaknospFront28);
-        frontSprites.add(bisaknospFront29);
-        frontSprites.add(bisaknospFront30);
-        frontSprites.add(bisaknospFront31);
-        frontSprites.add(bisaknospFront32);
-        frontSprites.add(bisaknospFront33);
-        frontSprites.add(bisaknospFront34);
-        frontSprites.add(bisaknospFront35);
-        frontSprites.add(bisaknospFront36);
-        frontSprites.add(bisaknospFront37);
-        frontSprites.add(bisaknospFront38);
-        frontSprites.add(bisaknospFront39);
-        frontSprites.add(bisaknospFront40);
-        frontSprites.add(bisaknospFront41);
-        frontSprites.add(bisaknospFront42);
-        frontSprites.add(bisaknospFront43);
-        frontSprites.add(bisaknospFront44);
-        frontSprites.add(bisaknospFront45);
-        frontSprites.add(bisaknospFront46);
-        frontSprites.add(bisaknospFront47);
-        frontSprites.add(bisaknospFront48);
-        frontSprites.add(bisaknospFront49);
-    }
-
-    @Override
-    protected void setBacksprites() {
-        backSprites.add(bisaknospBack1);
-        backSprites.add(bisaknospBack2);
-        backSprites.add(bisaknospBack3);
-        backSprites.add(bisaknospBack4);
-        backSprites.add(bisaknospBack5);
-        backSprites.add(bisaknospBack6);
-        backSprites.add(bisaknospBack7);
-        backSprites.add(bisaknospBack8);
-        backSprites.add(bisaknospBack9);
-        backSprites.add(bisaknospBack10);
-        backSprites.add(bisaknospBack11);
-        backSprites.add(bisaknospBack12);
-        backSprites.add(bisaknospBack13);
-        backSprites.add(bisaknospBack14);
-        backSprites.add(bisaknospBack15);
-        backSprites.add(bisaknospBack16);
-        backSprites.add(bisaknospBack17);
-        backSprites.add(bisaknospBack18);
-        backSprites.add(bisaknospBack19);
-        backSprites.add(bisaknospBack20);
-        backSprites.add(bisaknospBack21);
-        backSprites.add(bisaknospBack22);
-        backSprites.add(bisaknospBack23);
-        backSprites.add(bisaknospBack24);
-        backSprites.add(bisaknospBack25);
-        backSprites.add(bisaknospBack26);
-        backSprites.add(bisaknospBack27);
-        backSprites.add(bisaknospBack28);
-        backSprites.add(bisaknospBack29);
-        backSprites.add(bisaknospBack30);
-        backSprites.add(bisaknospBack31);
-        backSprites.add(bisaknospBack32);
-        backSprites.add(bisaknospBack33);
-        backSprites.add(bisaknospBack34);
-        backSprites.add(bisaknospBack35);
-        backSprites.add(bisaknospBack36);
-        backSprites.add(bisaknospBack37);
-        backSprites.add(bisaknospBack38);
-        backSprites.add(bisaknospBack39);
-        backSprites.add(bisaknospBack40);
-        backSprites.add(bisaknospBack41);
-        backSprites.add(bisaknospBack42);
-        backSprites.add(bisaknospBack43);
-        backSprites.add(bisaknospBack44);
-        backSprites.add(bisaknospBack45);
-        backSprites.add(bisaknospBack46);
-        backSprites.add(bisaknospBack47);
-        backSprites.add(bisaknospBack48);
-        backSprites.add(bisaknospBack49);
-        backSprites.add(bisaknospBack50);
-        backSprites.add(bisaknospBack51);
-        backSprites.add(bisaknospBack52);
-        backSprites.add(bisaknospBack53);
     }
 
     @Override
@@ -286,4 +176,121 @@ public class Bisaknosp extends Pokemon {
 
     }
 
+    @Override
+    protected void setFrontsprites() {
+        frontSprites.add(bisaknospFront1);
+        frontSprites.add(bisaknospFront2);
+        frontSprites.add(bisaknospFront3);
+        frontSprites.add(bisaknospFront4);
+        frontSprites.add(bisaknospFront5);
+        frontSprites.add(bisaknospFront6);
+        frontSprites.add(bisaknospFront7);
+        frontSprites.add(bisaknospFront8);
+        frontSprites.add(bisaknospFront9);
+        frontSprites.add(bisaknospFront10);
+        frontSprites.add(bisaknospFront11);
+        frontSprites.add(bisaknospFront12);
+        frontSprites.add(bisaknospFront13);
+        frontSprites.add(bisaknospFront14);
+        frontSprites.add(bisaknospFront15);
+        frontSprites.add(bisaknospFront16);
+        frontSprites.add(bisaknospFront17);
+        frontSprites.add(bisaknospFront18);
+        frontSprites.add(bisaknospFront19);
+        frontSprites.add(bisaknospFront20);
+        frontSprites.add(bisaknospFront21);
+        frontSprites.add(bisaknospFront22);
+        frontSprites.add(bisaknospFront23);
+        frontSprites.add(bisaknospFront24);
+        frontSprites.add(bisaknospFront25);
+        frontSprites.add(bisaknospFront26);
+        frontSprites.add(bisaknospFront27);
+        frontSprites.add(bisaknospFront28);
+        frontSprites.add(bisaknospFront29);
+        frontSprites.add(bisaknospFront30);
+        frontSprites.add(bisaknospFront31);
+        frontSprites.add(bisaknospFront32);
+        frontSprites.add(bisaknospFront33);
+        frontSprites.add(bisaknospFront34);
+        frontSprites.add(bisaknospFront35);
+        frontSprites.add(bisaknospFront36);
+        frontSprites.add(bisaknospFront37);
+        frontSprites.add(bisaknospFront38);
+        frontSprites.add(bisaknospFront39);
+        frontSprites.add(bisaknospFront40);
+        frontSprites.add(bisaknospFront41);
+        frontSprites.add(bisaknospFront42);
+        frontSprites.add(bisaknospFront43);
+        frontSprites.add(bisaknospFront44);
+        frontSprites.add(bisaknospFront45);
+        frontSprites.add(bisaknospFront46);
+        frontSprites.add(bisaknospFront47);
+        frontSprites.add(bisaknospFront48);
+        frontSprites.add(bisaknospFront49);
+    }
+
+    @Override
+    protected void setBacksprites() {
+        backSprites.add(bisaknospBack1);
+        backSprites.add(bisaknospBack2);
+        backSprites.add(bisaknospBack3);
+        backSprites.add(bisaknospBack4);
+        backSprites.add(bisaknospBack5);
+        backSprites.add(bisaknospBack6);
+        backSprites.add(bisaknospBack7);
+        backSprites.add(bisaknospBack8);
+        backSprites.add(bisaknospBack9);
+        backSprites.add(bisaknospBack10);
+        backSprites.add(bisaknospBack11);
+        backSprites.add(bisaknospBack12);
+        backSprites.add(bisaknospBack13);
+        backSprites.add(bisaknospBack14);
+        backSprites.add(bisaknospBack15);
+        backSprites.add(bisaknospBack16);
+        backSprites.add(bisaknospBack17);
+        backSprites.add(bisaknospBack18);
+        backSprites.add(bisaknospBack19);
+        backSprites.add(bisaknospBack20);
+        backSprites.add(bisaknospBack21);
+        backSprites.add(bisaknospBack22);
+        backSprites.add(bisaknospBack23);
+        backSprites.add(bisaknospBack24);
+        backSprites.add(bisaknospBack25);
+        backSprites.add(bisaknospBack26);
+        backSprites.add(bisaknospBack27);
+        backSprites.add(bisaknospBack28);
+        backSprites.add(bisaknospBack29);
+        backSprites.add(bisaknospBack30);
+        backSprites.add(bisaknospBack31);
+        backSprites.add(bisaknospBack32);
+        backSprites.add(bisaknospBack33);
+        backSprites.add(bisaknospBack34);
+        backSprites.add(bisaknospBack35);
+        backSprites.add(bisaknospBack36);
+        backSprites.add(bisaknospBack37);
+        backSprites.add(bisaknospBack38);
+        backSprites.add(bisaknospBack39);
+        backSprites.add(bisaknospBack40);
+        backSprites.add(bisaknospBack41);
+        backSprites.add(bisaknospBack42);
+        backSprites.add(bisaknospBack43);
+        backSprites.add(bisaknospBack44);
+        backSprites.add(bisaknospBack45);
+        backSprites.add(bisaknospBack46);
+        backSprites.add(bisaknospBack47);
+        backSprites.add(bisaknospBack48);
+        backSprites.add(bisaknospBack49);
+        backSprites.add(bisaknospBack50);
+        backSprites.add(bisaknospBack51);
+        backSprites.add(bisaknospBack52);
+        backSprites.add(bisaknospBack53);
+    }
+
+    @Override
+    protected void populateAttackList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
+
+
+
