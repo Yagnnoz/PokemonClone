@@ -4,6 +4,7 @@ import com.yagnnoz.realm.graphics.Screen;
 import com.yagnnoz.realm.graphics.Sprite;
 import com.yagnnoz.realm.pokemon.attacken.Attacke;
 import com.yagnnoz.realm.pokemon.attacken.AttackenEntry;
+import com.yagnnoz.realm.pokemon.attacken.AttackenFactory;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -20,21 +21,21 @@ public abstract class Pokemon {
     String name;
     protected List<Sprite> frontSprites;
     protected List<Sprite> backSprites;
-    protected List<AttackenEntry>AtkPerLvl;
+    protected List<AttackenEntry> AtkPerLvl;
     private int animateFront = 0;
     public int animateBack = 0;
     private final int animationSpeed;
     private Sprite sprite;
     public int NUMBER_FRAMES_FRONT_ANIM;
     public int NUMBER_FRAMES_BACK_ANIM;
-    
+
     //Attacken
-    private Attacke[] learnedAttacks;
+    private Attacke[] Attacken;
 
     Pokemon(int level) {
         this.animationSpeed = 2;
         this.level = level;
-        learnedAttacks = new Attacke[4];
+        Attacken = new Attacke[4];
         AtkPerLvl = new ArrayList<>();
     }
 
@@ -96,7 +97,7 @@ public abstract class Pokemon {
     protected abstract void setFrontsprites();
 
     protected abstract void setBacksprites();
-    
+
     protected abstract void populateAttackList();
 
     protected void setSprites() {
@@ -111,8 +112,8 @@ public abstract class Pokemon {
         basierend auf dem Level wird die Liste durchsucht und die letzten 4 Einträge genommen, die <= Level sind
         sind weniger Attacken in er Liste, werden halt nur die genommen.
         Das ganze dann halt per Factory.
-        */
-        if (!AtkPerLvl.isEmpty()){
+         */
+        if (!AtkPerLvl.isEmpty()) {
             //erst sortieren
             Collections.sort(AtkPerLvl, new Comparator<AttackenEntry>() {
                 @Override
@@ -121,12 +122,38 @@ public abstract class Pokemon {
                 }
             });
         }
-        
+
         //debug: OUtput all attacks
+        /*
+        System.out.println("Alle Attacken:");
         for(int i = 0; i<AtkPerLvl.size(); i++){
             System.out.println(AtkPerLvl.get(i).name + ", reqLvl: "+AtkPerLvl.get(i).reqLevel);
         }
+         
+        System.out.println("SIZE of ATK List: " + AtkPerLvl.size());
+        */
         
+        int gelernteAttacken = 0;
+        for (int i = AtkPerLvl.size(); i > 0; i--) {
+            if (gelernteAttacken == 3) {
+                break;
+            }
+            if (level >= AtkPerLvl.get(i-1).getReqLvl()) {
+                Attacken[gelernteAttacken] = AttackenFactory.makeAttacke(AtkPerLvl.get(i-1).name);
+                gelernteAttacken++;
+            }
+        }
+
+        /*
+        Debug: Output ATK Array
+         
+        System.out.println("gelernte Attacken: ");
+        for (int i = 0; i < Attacken.length; i++) {
+            if (Attacken[i] != null) {
+                System.out.println(Attacken[i].toString());
+            }
+        }
+        */
     }
-    
+
 }
