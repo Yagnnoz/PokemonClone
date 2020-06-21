@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  * @author Jens
  */
-public class Hornliu extends Pokemon {
+public final class Hornliu extends Pokemon {
 
     private static final int SPRITE_SIZE = 64;
 
@@ -117,6 +117,8 @@ public class Hornliu extends Pokemon {
 
         NUMBER_FRAMES_FRONT_ANIM = frontSprites.size();
         NUMBER_FRAMES_BACK_ANIM = backSprites.size();
+        populateAttackList();
+        setAttacks(4);
     }
 
     @Override
@@ -322,9 +324,10 @@ public class Hornliu extends Pokemon {
 
     @Override
     protected void populateAttackList() {
+        AtkPerLvl.add(new AttackenEntry("Feuersturm", 10));
         AtkPerLvl.add(new AttackenEntry("Tackle", 2));
         AtkPerLvl.add(new AttackenEntry("Fadenschuss", 2));
-        AtkPerLvl.add(new AttackenEntry("Feuersturm", 10));
+
     }
 
 }
