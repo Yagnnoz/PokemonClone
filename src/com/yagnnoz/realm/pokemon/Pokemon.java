@@ -5,6 +5,8 @@ import com.yagnnoz.realm.graphics.Sprite;
 import com.yagnnoz.realm.pokemon.attacken.Attacke;
 import com.yagnnoz.realm.pokemon.attacken.AttackenEntry;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -103,13 +105,28 @@ public abstract class Pokemon {
         setBacksprites();
     }
 
-    private void setAttacks(int level) {
+    protected void setAttacks(int level) {
         /*
         Plan:
         basierend auf dem Level wird die Liste durchsucht und die letzten 4 Einträge genommen, die <= Level sind
         sind weniger Attacken in er Liste, werden halt nur die genommen.
         Das ganze dann halt per Factory.
         */
+        if (!AtkPerLvl.isEmpty()){
+            //erst sortieren
+            Collections.sort(AtkPerLvl, new Comparator<AttackenEntry>() {
+                @Override
+                public int compare(AttackenEntry arg0, AttackenEntry arg1) {
+                    return Integer.valueOf(arg0.reqLevel).compareTo(arg1.reqLevel);
+                }
+            });
+        }
+        
+        //debug: OUtput all attacks
+        for(int i = 0; i<AtkPerLvl.size(); i++){
+            System.out.println(AtkPerLvl.get(i).name + ", reqLvl: "+AtkPerLvl.get(i).reqLevel);
+        }
+        
     }
     
 }
