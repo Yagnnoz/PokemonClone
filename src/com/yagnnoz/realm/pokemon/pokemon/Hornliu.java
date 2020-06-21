@@ -119,7 +119,7 @@ public final class Hornliu extends Pokemon {
         NUMBER_FRAMES_FRONT_ANIM = frontSprites.size();
         NUMBER_FRAMES_BACK_ANIM = backSprites.size();
         populateAttackList();
-        setAttacks(15);
+        setAttacks(level);
     }
 
     @Override
