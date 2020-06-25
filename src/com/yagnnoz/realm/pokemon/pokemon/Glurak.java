@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  * @author Jens
  */
-public class Glurak extends Pokemon {
+public final class Glurak extends Pokemon {
 
     private final int SPRITE_SIZE_FRONT = 980;
     private final int SPRITE_SIZE_BACK = 1376;
@@ -285,4 +285,13 @@ public class Glurak extends Pokemon {
 
     }
 
+    @Override
+    protected void setBaseStats() {
+        baseStats[0] = 78; //HP
+        baseStats[1] = 84; //ATK
+        baseStats[2] = 78; //DEF
+        baseStats[3] = 109; //SpATK
+        baseStats[4] = 85; //SpDEF
+        baseStats[5] = 100; //SPD
+    }
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  * @author Jens
  */
-public class Pikachu extends Pokemon {
+public final class Pikachu extends Pokemon {
 
     private static final int SPRITE_SIZE = 64;
 
@@ -196,5 +196,15 @@ public class Pikachu extends Pokemon {
     @Override
     protected void populateAttackList() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void setBaseStats() {
+        baseStats[0] = 35; //HP
+        baseStats[1] = 55; //ATK
+        baseStats[2] = 40; //DEF
+        baseStats[3] = 50; //SpATK
+        baseStats[4] = 50; //SpDEF
+        baseStats[5] = 90; //SPD
     }
 }

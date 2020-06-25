@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  * @author Jens
  */
-public class Bisaknosp extends Pokemon {
+public final class Bisaknosp extends Pokemon {
 
     private final int SPRITE_SIZE_FRONT = 84;
     private final int SPRITE_SIZE_BACK = 76;
@@ -291,7 +291,14 @@ public class Bisaknosp extends Pokemon {
     protected void populateAttackList() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    protected void setBaseStats() {
+        baseStats[0] = 60; //HP
+        baseStats[1] = 62; //ATK
+        baseStats[2] = 63; //DEF
+        baseStats[3] = 80; //SpATK
+        baseStats[4] = 80; //SpDEF
+        baseStats[5] = 60; //SPD
+    }
 }
-
-
-

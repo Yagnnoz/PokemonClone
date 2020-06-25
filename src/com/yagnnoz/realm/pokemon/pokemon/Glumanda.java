@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  * @author Jens
  */
-public class Glumanda extends Pokemon {
+public final class Glumanda extends Pokemon {
 
     private final int SPRITE_SIZE_FRONT = 513;
     private final int SPRITE_SIZE_BACK = 448;
@@ -304,6 +304,16 @@ public class Glumanda extends Pokemon {
     @Override
     protected void populateAttackList() {
 
+    }
+
+    @Override
+    protected void setBaseStats() {
+        baseStats[0] = 39; //HP
+        baseStats[1] = 52; //ATK
+        baseStats[2] = 43; //DEF
+        baseStats[3] = 60; //SpATK
+        baseStats[4] = 50; //SpDEF
+        baseStats[5] = 65; //SPD
     }
 
 }

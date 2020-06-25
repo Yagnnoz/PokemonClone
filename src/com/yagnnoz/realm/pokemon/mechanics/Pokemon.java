@@ -29,6 +29,12 @@ public abstract class Pokemon {
     public int NUMBER_FRAMES_FRONT_ANIM;
     public int NUMBER_FRAMES_BACK_ANIM;
 
+    //ALL THE STATS
+    protected int baseStats[]; //hp, atk, def, spatk. spdef, spd
+    protected int currentStats[]; //hp, atk, def, spatk. spdef, spd
+    protected int DV[]; //hp, atk, def, spatk. spdef, spd
+    protected int FP[]; //hp, atk, def, spatk. spdef, spd
+
     //Attacken
     private Attacke[] Attacken;
 
@@ -37,6 +43,7 @@ public abstract class Pokemon {
         this.level = level;
         Attacken = new Attacke[4];
         AtkPerLvl = new ArrayList<>();
+        initStats();
     }
 
     public int getLevel() {
@@ -131,29 +138,56 @@ public abstract class Pokemon {
         }
          
         System.out.println("SIZE of ATK List: " + AtkPerLvl.size());
-        */
-        
+         */
         int gelernteAttacken = 0;
         for (int i = AtkPerLvl.size(); i > 0; i--) {
             if (gelernteAttacken > 3) {
                 break;
             }
-            if (level >= AtkPerLvl.get(i-1).getReqLvl()) {
-                Attacken[gelernteAttacken] = AttackenFactory.makeAttacke(AtkPerLvl.get(i-1).name);
+            if (level >= AtkPerLvl.get(i - 1).getReqLvl()) {
+                Attacken[gelernteAttacken] = AttackenFactory.makeAttacke(AtkPerLvl.get(i - 1).name);
                 gelernteAttacken++;
             }
         }
 
         /*
         Debug: Output ATK Array
-           */
+         */
         System.out.println("gelernte Attacken: ");
         for (int i = 0; i < Attacken.length; i++) {
             if (Attacken[i] != null) {
                 System.out.println(Attacken[i].toString());
             }
         }
-      
+
+    }
+
+    private void initStats() {
+        DV = new int[6];
+        FP = new int[6];
+        baseStats = new int[6];
+        currentStats = new int[6];
+
+        for (int i = 0; i < DV.length; i++) {
+            DV[i] = 0;
+            FP[i] = 0;
+        }
+
+        setBaseStats();
+        calculateCurrentStats();
+
+    }
+
+    protected abstract void setBaseStats();
+
+    private void calculateCurrentStats() {
+        //HP:
+        currentStats[0] = (((2 * baseStats[0] + DV[0] + (FP[0] / 4)) * level) / 100) + level + 10;
+        //other stats:
+        for (int i = 1; i < currentStats.length; i++) {
+            currentStats[i] = (((2 * baseStats[i] + DV[i] + (FP[i] / 4)) * level) / 100) + 5; //*Wesen
+        }
+
     }
 
 }

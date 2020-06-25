@@ -334,4 +334,14 @@ public final class Hornliu extends Pokemon {
 
     }
 
+    @Override
+    protected void setBaseStats() {
+        baseStats[0] = 40; //HP
+        baseStats[1] = 35; //ATK
+        baseStats[2] = 30; //DEF
+        baseStats[3] = 20; //SpATK
+        baseStats[4] = 20; //SpDEF
+        baseStats[5] = 50; //SPD
+    }
+
 }

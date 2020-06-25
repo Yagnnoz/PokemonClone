@@ -9,12 +9,11 @@ import java.util.ArrayList;
  *
  * @author Jens
  */
-public class Rattfratz extends Pokemon {
+public final class Rattfratz extends Pokemon {
 
     private static final int SPRITE_SIZE = 64;
-    
-    //<editor-fold desc="Sprites">
 
+    //<editor-fold desc="Sprites">
     //---------------------------------------------------------------------------------------------------//
     //----------------------------------------- FRONT ---------------------------------------------------//
     //---------------------------------------------------------------------------------------------------//
@@ -78,16 +77,15 @@ public class Rattfratz extends Pokemon {
     public static Sprite RattfratzBack24 = new Sprite(SPRITE_SIZE, 7, 2, SpriteSheet.RattfratzBack);
 
     public static Sprite RattfratzBack25 = new Sprite(SPRITE_SIZE, 0, 3, SpriteSheet.RattfratzBack);
-    
-    //</editor-fold>
 
+    //</editor-fold>
     public Rattfratz(int level) {
         super(level);
         setName("Rattfratz");
 
         frontSprites = new ArrayList<>();
         backSprites = new ArrayList<>();
-        
+
         setSprites();
 
         NUMBER_FRAMES_FRONT_ANIM = frontSprites.size();
@@ -161,8 +159,14 @@ public class Rattfratz extends Pokemon {
     protected void populateAttackList() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    //TODO: 
-    //INIT SPRITES!!
+
+    @Override
+    protected void setBaseStats() {
+        baseStats[0] = 30; //HP
+        baseStats[1] = 56; //ATK
+        baseStats[2] = 35; //DEF
+        baseStats[3] = 25; //SpATK
+        baseStats[4] = 35; //SpDEF
+        baseStats[5] = 72; //SPD
+    }
 }

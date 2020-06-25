@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  * @author Jens
  */
-public class Glutexo extends Pokemon {
+public final class Glutexo extends Pokemon {
 
     private final int SPRITE_SIZE_FRONT = 560;
     private final int SPRITE_SIZE_BACK = 624;
@@ -337,6 +337,16 @@ public class Glutexo extends Pokemon {
     @Override
     protected void populateAttackList() {
 
+    }
+
+    @Override
+    protected void setBaseStats() {
+        baseStats[0] = 58; //HP
+        baseStats[1] = 64; //ATK
+        baseStats[2] = 58; //DEF
+        baseStats[3] = 80; //SpATK
+        baseStats[4] = 65; //SpDEF
+        baseStats[5] = 80; //SPD
     }
 
 }
