@@ -190,4 +190,8 @@ public abstract class Pokemon {
 
     }
 
+    public int getSpd() {
+        return currentStats[5];
+    }
+
 }

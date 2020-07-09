@@ -166,8 +166,8 @@ public class Game extends Canvas implements Runnable {
                     if (key.e) {
                         checkForInteraction();
                     }
-                    if(key.f){
-                        System.out.println("PLayer TILEPOS: X: "+player.getTileX()+ " , Y: "+ player.getTileY());
+                    if (key.f) {
+                        System.out.println("PLayer TILEPOS: X: " + player.getTileX() + " , Y: " + player.getTileY());
                     }
                     checkGrassforWildPkmn();
 
@@ -235,8 +235,8 @@ public class Game extends Canvas implements Runnable {
             case FIGHT:
                 g.drawImage(fightImage, 0, 0, getWidth(), getHeight(), null);
                 fightScreen.renderBattlefield();
-                fight.render(fightScreen, g);
-                
+                fight.render(fightScreen);
+
                 fight.getOpponent().renderOpponent(fightScreen);
                 fight.getOwn().renderOwnPokemon(fightScreen);
 
@@ -268,7 +268,7 @@ public class Game extends Canvas implements Runnable {
                 if (level.getTile(player.getTileX(), player.getTileY()) == Tile.spawn_tall_grass) {
                     if (Math.random() <= 0.1) {
                         changeGameState("FIGHT");
-                        fight.startFight();
+                        fight.startWildPkmnFight();
                     }
                 }
 
@@ -288,7 +288,7 @@ public class Game extends Canvas implements Runnable {
                 break;
             case 1:
                 for (int i = 0; i < level.getTrainers().size(); i++) {
-                    if (level.getTrainers().get(i).getTileX() == player.getTileX()+1 && level.getTrainers().get(i).getTileY() == player.getTileY()) {
+                    if (level.getTrainers().get(i).getTileX() == player.getTileX() + 1 && level.getTrainers().get(i).getTileY() == player.getTileY()) {
                         changeGameState("FIGHT");
                         fight.startTrainerFight(level.getTrainers().get(i));
                     }
@@ -304,7 +304,7 @@ public class Game extends Canvas implements Runnable {
                 break;
             case 3:
                 for (int i = 0; i < level.getTrainers().size(); i++) {
-                    if (level.getTrainers().get(i).getTileX() == player.getTileX()-1 && level.getTrainers().get(i).getTileY() == player.getTileY()) {
+                    if (level.getTrainers().get(i).getTileX() == player.getTileX() - 1 && level.getTrainers().get(i).getTileY() == player.getTileY()) {
                         changeGameState("FIGHT");
                         fight.startTrainerFight(level.getTrainers().get(i));
                     }
