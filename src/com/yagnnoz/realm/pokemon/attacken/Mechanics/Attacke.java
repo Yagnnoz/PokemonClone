@@ -1,6 +1,6 @@
 package com.yagnnoz.realm.pokemon.attacken.Mechanics;
 
-import com.yagnnoz.realm.pokemon.mechanics.PokemonTyp;
+import com.yagnnoz.realm.pokemon.mechanics.Enums;
 
 /**
  *
@@ -13,7 +13,7 @@ public abstract class Attacke {
     protected int maxPP;
     protected int stdPP;
     protected int currPP;
-    protected PokemonTyp.TYP typ;
+    protected Enums.TYP typ;
     protected String text;
     
     

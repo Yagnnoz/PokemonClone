@@ -1,7 +1,7 @@
 package com.yagnnoz.realm.pokemon.attacken.attacken;
 
 import com.yagnnoz.realm.pokemon.attacken.Mechanics.Attacke;
-import com.yagnnoz.realm.pokemon.mechanics.PokemonTyp;
+import com.yagnnoz.realm.pokemon.mechanics.Enums;
 
 /**
  *
@@ -12,7 +12,7 @@ public class Hydropumpe extends Attacke{
     public Hydropumpe(){
         str = 120;
         acc = 70;
-        typ = PokemonTyp.TYP.WASSER;
+        typ = Enums.TYP.WASSER;
         stdPP = 15;
         maxPP = 25;
         currPP = stdPP;
