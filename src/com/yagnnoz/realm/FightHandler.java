@@ -3,6 +3,7 @@ package com.yagnnoz.realm;
 import com.yagnnoz.realm.entity.mob.Player;
 import com.yagnnoz.realm.entity.mob.Trainer;
 import com.yagnnoz.realm.graphics.Screen;
+import com.yagnnoz.realm.pokemon.mechanics.Enums;
 import com.yagnnoz.realm.pokemon.mechanics.Pokemon;
 import com.yagnnoz.realm.pokemon.mechanics.PokemonFactory;
 
@@ -12,23 +13,16 @@ import com.yagnnoz.realm.pokemon.mechanics.PokemonFactory;
  */
 public class FightHandler {
 
-    public enum PLAYERACTIONS {
-        AUSWAHL, ATTACKEN, FLUCHT, WAITING
-    };
-
-    public enum TURN {
-        PLAYER, ENEMY
-    };
-
     private Pokemon opponent;
     private Pokemon ownPokemon;
     private final Game game;
     private Player player;
-    private PLAYERACTIONS state;
-    private TURN turn;
+    private Enums.PLAYERACTIONS state;
+    private Enums.TURN turn;
 
     FightHandler(Game game) {
         this.game = game;
+        
     }
 
     public void setOpponent(Pokemon pkmn) {
@@ -96,8 +90,7 @@ public class FightHandler {
     }
 
     public void render(Screen screen) {
-        screen.renderRectangle(50, 50, 100, 150, 0xFF0000);
-        screen.renderBigRectangle(50, 300, 50, 50, 0xFF00FF);
+        screen.renderBigRectangle(screen.width-353, screen.height-153, 350, 150, 0xFF0000);
     }
 
     public void setPlayer(Player pc) {
@@ -106,12 +99,12 @@ public class FightHandler {
 
     private void determineStartTurn() {
         if (ownPokemon.getSpd() > opponent.getSpd()) {
-            turn = TURN.PLAYER;
-            state = PLAYERACTIONS.AUSWAHL;
+            turn = Enums.TURN.PLAYER;
+            state = Enums.PLAYERACTIONS.AUSWAHL;
             System.out.println("PLAYER STARTS");
         } else {
-            turn = TURN.ENEMY;
-            state = PLAYERACTIONS.WAITING;
+            turn = Enums.TURN.ENEMY;
+            state = Enums.PLAYERACTIONS.WAITING;
             System.out.println("ENEMY STARTS");
         }
 

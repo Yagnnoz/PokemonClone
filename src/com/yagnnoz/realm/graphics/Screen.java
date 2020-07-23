@@ -121,43 +121,15 @@ public class Screen {
                     pixels[xPos + y * this.width] = color;
                 }
                 pixels[(xPos + width) + y * this.width] = color;
-
             }
-
         }
+
     }
 
     public void renderBigRectangle(int xPos, int yPos, int width, int height, int color) {
-
-        for (int x = xPos; x < xPos + width; x++) {
-            if (x < 0 || x >= this.width || yPos >= this.height) {
-                continue;
-            }
-            if (yPos > 0) {
-                pixels[x + yPos * this.width] = color;
-                pixels[x + (yPos + 1) * this.width] = color;
-                pixels[x + (yPos + 2) * this.width] = color;
-            }
-           // pixels[x + (yPos + height) * this.width] = color;
-            pixels[x + (yPos - 1 + height) * this.width] = color;
-            pixels[x + (yPos - 2 + height) * this.width] = color;
-
-            for (int y = yPos; y < yPos + height; y++) {
-                if (xPos >= this.width || y < 0 || y >= this.height) {
-                    continue;
-                }
-                if (xPos > 0) {
-                    pixels[xPos + y * this.width] = color;
-                    pixels[xPos + 1 + y * this.width] = color;
-                    pixels[xPos + 2 + y * this.width] = color;
-                }
-                pixels[(xPos + width) + (y) * this.width] = color;
-                pixels[(xPos - 1 + width) + (y) * this.width] = color;
-                pixels[(xPos - 2 + width) + (y) * this.width] = color;
-
-            }
-
-        }
+        //FUCK IT
+        renderRectangle(xPos, yPos, width, height, color);
+        renderRectangle(xPos, yPos - 1, width+1, height + 2, color);
 
     }
 
