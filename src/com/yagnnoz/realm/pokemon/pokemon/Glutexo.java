@@ -11,8 +11,8 @@ import java.util.ArrayList;
  */
 public final class Glutexo extends Pokemon {
 
-    private final int SPRITE_SIZE_FRONT = 560;
-    private final int SPRITE_SIZE_BACK = 624;
+    private final int SPRITE_SIZE_FRONT = 70;
+    private final int SPRITE_SIZE_BACK = 78;
 
 //<editor-fold desc="Sprites">
     public Sprite glutexoFront1, glutexoFront2, glutexoFront3, glutexoFront4,

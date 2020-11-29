@@ -11,8 +11,8 @@ import java.util.ArrayList;
  */
 public final class Glumanda extends Pokemon {
 
-    private final int SPRITE_SIZE_FRONT = 513;
-    private final int SPRITE_SIZE_BACK = 448;
+    private final int SPRITE_SIZE_FRONT = 57;
+    private final int SPRITE_SIZE_BACK = 64;
 
 //<editor-fold desc="Sprites">
     public Sprite glumandaFront1, glumandaFront2, glumandaFront3, glumandaFront4,

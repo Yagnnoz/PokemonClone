@@ -11,8 +11,8 @@ import java.util.ArrayList;
  */
 public final class Glurak extends Pokemon {
 
-    private final int SPRITE_SIZE_FRONT = 980;
-    private final int SPRITE_SIZE_BACK = 1376;
+    private final int SPRITE_SIZE_FRONT = 140;
+    private final int SPRITE_SIZE_BACK = 172;
 
 //<editor-fold desc="Sprites">
     public Sprite glurakFront1, glurakFront2, glurakFront3, glurakFront4,

@@ -11,8 +11,8 @@ import java.util.ArrayList;
  */
 public final class Bisaflor extends Pokemon {
 
-    private final int SPRITE_SIZE_FRONT = 848;
-    private final int SPRITE_SIZE_BACK = 760;
+    private final int SPRITE_SIZE_FRONT = 106;
+    private final int SPRITE_SIZE_BACK = 95;
 
 //<editor-fold desc="Sprites">
     public Sprite bisaflorFront1, bisaflorFront2, bisaflorFront3, bisaflorFront4,
