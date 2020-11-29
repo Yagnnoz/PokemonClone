@@ -110,8 +110,8 @@ public class Sprite {
     public static Sprite trainer_right_2 = new Sprite(32, 1, 3, SpriteSheet.tiles);
 
     public Sprite(int size, int x, int y, SpriteSheet sheet) {
-        SIZE = size;
-        pixels = new int[SIZE * SIZE];
+        this.SIZE = size;
+        this.pixels = new int[SIZE * SIZE];
         this.x = x * SIZE;
         this.y = y * SIZE;
         this.width = SIZE;
