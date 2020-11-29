@@ -1,12 +1,6 @@
 package com.yagnnoz.realm.pokemon.mechanics;
 
-import com.yagnnoz.realm.pokemon.pokemon.Bisaflor;
-import com.yagnnoz.realm.pokemon.pokemon.Bisaknosp;
-import com.yagnnoz.realm.pokemon.pokemon.Bisasam;
-import com.yagnnoz.realm.pokemon.pokemon.Hornliu;
-import com.yagnnoz.realm.pokemon.pokemon.Pikachu;
-import com.yagnnoz.realm.pokemon.pokemon.Rattfratz;
-
+import com.yagnnoz.realm.pokemon.pokemon.*;
 /**
  *
  * @author Jens
@@ -28,7 +22,7 @@ public class PokemonFactory {
             case "Bisaflor":
                 result = new Bisaflor(Lvl);
                 break;
-         /*   
+           
             case "Glumanda":
                 result = new Glumanda(Lvl);
                 break;
@@ -38,7 +32,7 @@ public class PokemonFactory {
             case "Glurak":
                 result = new Glurak(Lvl);
                 break;
-            
+            /* 
             case "Schiggy":
                 result = new Schiggy(Lvl);
                 break;
