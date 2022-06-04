@@ -1,5 +1,6 @@
 package com.yagnnoz.realm.pokemon.pokemon;
 
+import com.yagnnoz.realm.pokemon.attacken.Mechanics.AttackenEntry;
 import com.yagnnoz.realm.pokemon.mechanics.Pokemon;
 import com.yagnnoz.realm.graphics.Sprite;
 import com.yagnnoz.realm.graphics.SpriteSheet;
@@ -15,9 +16,22 @@ public class Rattfratz extends Pokemon {
     private final int SPRITE_SIZE_BACK = 64;
 
     //<editor-fold desc="Sprites">
-    public Sprite rattfratzFront1, rattfratzFront2, rattfratzFront3, rattfratzFront4, rattfratzFront5, rattfratzFront6, rattfratzFront7, rattfratzFront8, rattfratzFront9, rattfratzFront10, rattfratzFront11, rattfratzFront12, rattfratzFront13, rattfratzFront14, rattfratzFront15, rattfratzFront16, rattfratzFront17, rattfratzFront18, rattfratzFront19, rattfratzFront20, rattfratzFront21, rattfratzFront22, rattfratzFront23, rattfratzFront24, rattfratzFront25;
+    public Sprite rattfratzFront1, rattfratzFront2, rattfratzFront3, rattfratzFront4,
+            rattfratzFront5, rattfratzFront6, rattfratzFront7, rattfratzFront8,
+            rattfratzFront9, rattfratzFront10, rattfratzFront11, rattfratzFront12,
+            rattfratzFront13, rattfratzFront14, rattfratzFront15, rattfratzFront16,
+            rattfratzFront17, rattfratzFront18, rattfratzFront19, rattfratzFront20,
+            rattfratzFront21, rattfratzFront22, rattfratzFront23, rattfratzFront24,
+            rattfratzFront25;
 
-    public Sprite rattfratzBack1, rattfratzBack2, rattfratzBack3, rattfratzBack4, rattfratzBack5, rattfratzBack6, rattfratzBack7, rattfratzBack8, rattfratzBack9, rattfratzBack10, rattfratzBack11, rattfratzBack12, rattfratzBack13, rattfratzBack14, rattfratzBack15, rattfratzBack16, rattfratzBack17, rattfratzBack18, rattfratzBack19, rattfratzBack20, rattfratzBack21, rattfratzBack22, rattfratzBack23, rattfratzBack24, rattfratzBack25;
+
+    public Sprite rattfratzBack1, rattfratzBack2, rattfratzBack3, rattfratzBack4,
+            rattfratzBack5, rattfratzBack6, rattfratzBack7, rattfratzBack8,
+            rattfratzBack9, rattfratzBack10, rattfratzBack11, rattfratzBack12,
+            rattfratzBack13, rattfratzBack14, rattfratzBack15, rattfratzBack16,
+            rattfratzBack17, rattfratzBack18, rattfratzBack19, rattfratzBack20,
+            rattfratzBack21, rattfratzBack22, rattfratzBack23, rattfratzBack24,
+            rattfratzBack25;
 //</editor-fold>
 
     private SpriteSheet rattfratzFront;
@@ -164,17 +178,19 @@ public class Rattfratz extends Pokemon {
 
     @Override
     protected void populateAttackList() {
-
+        AtkPerLvl.add(new AttackenEntry("Tackle", 2));
+        AtkPerLvl.add(new AttackenEntry("Rutenschlag", 2));
+        AtkPerLvl.add(new AttackenEntry("Hyperzahn", 10));
     }
 
     @Override
     protected void setBaseStats() {
-        baseStats[0] = 4; //HP
-        baseStats[1] = 2; //ATK
-        baseStats[2] = 4; //DEF
-        baseStats[3] = 3; //SpATK
-        baseStats[4] = 8; //SpDEF
-        baseStats[5] = 7; //SPD
+        baseStats[0] = 30; //HP
+        baseStats[1] = 56; //ATK
+        baseStats[2] = 35; //DEF
+        baseStats[3] = 25; //SpATK
+        baseStats[4] = 35; //SpDEF
+        baseStats[5] = 72; //SPD
     }
 }
 
