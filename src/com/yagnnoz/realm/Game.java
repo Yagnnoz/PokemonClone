@@ -235,7 +235,7 @@ public class Game extends Canvas implements Runnable {
             case FIGHT:
                 g.drawImage(fightImage, 0, 0, getWidth(), getHeight(), null);
                 fightScreen.renderBattlefield();
-                fight.render(fightScreen);
+                fight.render(fightScreen, g);
 
                 fight.getOpponent().renderOpponent(fightScreen);
                 fight.getOwn().renderOwnPokemon(fightScreen);
@@ -244,12 +244,14 @@ public class Game extends Canvas implements Runnable {
                     fightPixels[i] = fightScreen.pixels[i];
                 }
 
+
+
             default:
                 break;
         }
 
         //Graphic stuff goes here
-        g.setFont(new Font("Calibri", 0, 50));
+        g.setFont(new Font("Calibri", 0, 40));
         g.dispose();
 
         bs.show();
