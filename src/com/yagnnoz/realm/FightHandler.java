@@ -10,7 +10,6 @@ import com.yagnnoz.realm.pokemon.mechanics.PokemonFactory;
 import java.awt.*;
 
 /**
- *
  * @author Jens
  */
 public class FightHandler {
@@ -22,14 +21,8 @@ public class FightHandler {
     private Enums.PLAYERACTIONS state;
     private Enums.TURN turn;
 
-    private final Rectangle fightButton = new Rectangle((Game.width * Game.scale) / 2 - 50, 200, 100, 50);
-    private final Rectangle itemButton = new Rectangle((Game.width * Game.scale) / 2 - 50, 300, 100, 50);
-    private final Rectangle fleeButton = new Rectangle((Game.width * Game.scale) / 2 - 50, 400, 100, 50);
-    private final Rectangle pkmnButton = new Rectangle((Game.width * Game.scale) / 2 - 50, 400, 100, 50);
-
     FightHandler(Game game) {
         this.game = game;
-        
     }
 
     public void setOpponent(Pokemon pkmn) {
@@ -97,15 +90,9 @@ public class FightHandler {
     }
 
     public void render(Screen screen, Graphics g) {
-        Rectangle border = new Rectangle(screen.width-250, screen.height-100, 350,150);
-        Rectangle fightButton = new Rectangle(screen.width-253, screen.height-103, );
-
-
-      //  screen.renderBigRectangle(screen.width-353, screen.height-153, 350, 150, 0xFF0000);
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(Color.RED);
-        g2d.draw(border);
-       // screen.renderRectangle(screen.width-345, screen.height-150, 80, 40, 0x000000);
+        this.renderButtons(screen, g2d);
+
     }
 
     public void setPlayer(Player pc) {
@@ -123,6 +110,29 @@ public class FightHandler {
             System.out.println("ENEMY STARTS");
         }
 
+    }
+
+
+    /**
+     * Renders the Buttons in the bottom left to the screen
+     *
+     * @param screen - reference to the screen
+     * @param g      - Graphics2D object, both passed in from the render() method
+     */
+    private void renderButtons(Screen screen, Graphics2D g) {
+        Rectangle border = new Rectangle(screen.width - 250, screen.height - 100, 350, 150);
+        Rectangle fightButton = new Rectangle(screen.width - 245, screen.height - 95, 170, 70);
+        Rectangle pkmnButton = new Rectangle(screen.width - 75, screen.height - 95, 170, 70);
+        Rectangle itemButton = new Rectangle(screen.width - 245, screen.height - 25, 170, 70);
+        Rectangle fleeButton = new Rectangle(screen.width - 75, screen.height - 25, 170, 70);
+
+        g.setColor(Color.RED);
+        g.draw(border);
+        g.setColor(Color.BLACK);
+        g.draw(fightButton);
+        g.draw(pkmnButton);
+        g.draw(itemButton);
+        g.draw(fleeButton);
     }
 
 }
