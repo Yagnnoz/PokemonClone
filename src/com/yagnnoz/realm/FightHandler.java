@@ -133,6 +133,26 @@ public class FightHandler {
         g.draw(pkmnButton);
         g.draw(itemButton);
         g.draw(fleeButton);
+
+        g.setFont(new Font("Calibri", Font.PLAIN, 25));
+
+        switch (state) {
+            case AUSWAHL -> {
+                g.drawString("Kampf", fightButton.x + 20, fightButton.y + 40);
+                g.drawString("Pokémon", pkmnButton.x + 20, pkmnButton.y + 40);
+                g.drawString("Beutel", itemButton.x + 20, itemButton.y + 40);
+                g.drawString("Flucht", fleeButton.x + 20, fleeButton.y + 40);
+                break;
+            }/*
+            case ATTACKEN -> {
+                g.drawString("Kampf", fightButton.x + 20, fightButton.y + 40);
+                g.drawString("Pokémon", pkmnButton.x + 20, pkmnButton.y + 40);
+                g.drawString("Beutel", itemButton.x + 20, itemButton.y + 40);
+                g.drawString("Flucht", fleeButton.x + 20, fleeButton.y + 40);
+            }*/
+        }
+
     }
+
 
 }
