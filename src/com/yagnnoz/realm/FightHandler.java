@@ -3,16 +3,21 @@ package com.yagnnoz.realm;
 import com.yagnnoz.realm.entity.mob.Player;
 import com.yagnnoz.realm.entity.mob.Trainer;
 import com.yagnnoz.realm.graphics.Screen;
+import com.yagnnoz.realm.input.Mouse;
 import com.yagnnoz.realm.pokemon.mechanics.Enums;
 import com.yagnnoz.realm.pokemon.mechanics.Pokemon;
 import com.yagnnoz.realm.pokemon.mechanics.PokemonFactory;
 
 import java.awt.*;
 
+import static com.yagnnoz.realm.Game.*;
+
 /**
  * @author Jens
  */
 public class FightHandler {
+
+    private Dimension fightDimension = new Dimension((int)(width * scaleFight), (int)(height * scaleFight));
 
     private Pokemon opponent;
     private Pokemon ownPokemon;
@@ -120,11 +125,11 @@ public class FightHandler {
      * @param g      - Graphics2D object, both passed in from the render() method
      */
     private void renderButtons(Screen screen, Graphics2D g) {
-        Rectangle border = new Rectangle(screen.width - 250, screen.height - 100, 350, 150);
-        Rectangle fightButton = new Rectangle(screen.width - 245, screen.height - 95, 170, 70);
-        Rectangle pkmnButton = new Rectangle(screen.width - 75, screen.height - 95, 170, 70);
-        Rectangle itemButton = new Rectangle(screen.width - 245, screen.height - 25, 170, 70);
-        Rectangle fleeButton = new Rectangle(screen.width - 75, screen.height - 25, 170, 70);
+        Rectangle border = new Rectangle(fightDimension.width - 250, fightDimension.height - 100, 350, 150);
+        Rectangle fightButton = new Rectangle(fightDimension.width - 245, fightDimension.height - 95, 170, 70);
+        Rectangle pkmnButton = new Rectangle(fightDimension.width - 75, fightDimension.height - 95, 170, 70);
+        Rectangle itemButton = new Rectangle(fightDimension.width - 245, fightDimension.height - 25, 170, 70);
+        Rectangle fleeButton = new Rectangle(fightDimension.width - 75, fightDimension.height - 25, 170, 70);
 
         g.setColor(Color.RED);
         g.draw(border);
