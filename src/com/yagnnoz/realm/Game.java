@@ -69,7 +69,7 @@ public class Game extends Canvas implements Runnable {
         player = new Player(playerSpawn.getX(), playerSpawn.getY(), key);
         player.init(level);
         player.addPokemon(PokemonFactory.makePokemon("Bisasam", 5));
-        fight = new FightHandler(this);
+        fight = new FightHandler(this, fightScreen);
         fight.setPlayer(player);
 
         addMouseListener(mouse);

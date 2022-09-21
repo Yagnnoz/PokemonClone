@@ -10,24 +10,33 @@ import com.yagnnoz.realm.pokemon.mechanics.PokemonFactory;
 
 import java.awt.*;
 
-import static com.yagnnoz.realm.Game.*;
-
 /**
  * @author Jens
  */
 public class FightHandler {
-
-    private Dimension fightDimension = new Dimension((int)(width * scaleFight), (int)(height * scaleFight));
-
+    private final Screen screen;
+    private final Game game;
     private Pokemon opponent;
     private Pokemon ownPokemon;
-    private final Game game;
+
     private Player player;
     private Enums.PLAYERACTIONS state;
     private Enums.TURN turn;
 
-    FightHandler(Game game) {
+    Rectangle border, fightButton, pkmnButton, itemButton, fleeButton;
+
+    FightHandler(Game game, Screen fightScreen) {
         this.game = game;
+        this.screen = fightScreen;
+        init();
+    }
+
+    private void init() {
+        border = new Rectangle(this.screen.width - 250, this.screen.height - 100, 350, 150);
+        fightButton = new Rectangle(this.screen.width - 245, this.screen.height - 95, 170, 70);
+        pkmnButton = new Rectangle(this.screen.width - 75, this.screen.height - 95, 170, 70);
+        itemButton = new Rectangle(this.screen.width - 245, this.screen.height - 25, 170, 70);
+        fleeButton = new Rectangle(this.screen.width - 75, this.screen.height - 25, 170, 70);
     }
 
     public void setOpponent(Pokemon pkmn) {
@@ -49,6 +58,18 @@ public class FightHandler {
         } else {
             opponent.update();
             ownPokemon.update();
+        }
+
+        if (Mouse.getButton() == 1) {
+            if ((Mouse.getX() > fightButton.x) && (Mouse.getX() < fightButton.x + fightButton.width) && (Mouse.getY() > fightButton.y) && (Mouse.getY() < fightButton.y + fightButton.height)) {
+                System.out.println("pressed FightButton");
+            } else if ((Mouse.getX() > pkmnButton.x) && (Mouse.getX() < pkmnButton.x + pkmnButton.width) && (Mouse.getY() > pkmnButton.y) && (Mouse.getY() < pkmnButton.y + pkmnButton.height)) {
+                System.out.println("pressed pkmnButton");
+            } else if ((Mouse.getX() > itemButton.x) && (Mouse.getX() < itemButton.x + itemButton.width) && (Mouse.getY() > itemButton.y) && (Mouse.getY() < itemButton.y + itemButton.height)) {
+                System.out.println("pressed itemButton");
+            } else if ((Mouse.getX() > fleeButton.x) && (Mouse.getX() < fleeButton.x + fleeButton.width) && (Mouse.getY() > fleeButton.y) && (Mouse.getY() < fleeButton.y + fleeButton.height)) {
+                System.out.println("pressed fleeButton");
+            }
         }
 
     }
@@ -125,12 +146,6 @@ public class FightHandler {
      * @param g      - Graphics2D object, both passed in from the render() method
      */
     private void renderButtons(Screen screen, Graphics2D g) {
-        Rectangle border = new Rectangle(fightDimension.width - 250, fightDimension.height - 100, 350, 150);
-        Rectangle fightButton = new Rectangle(fightDimension.width - 245, fightDimension.height - 95, 170, 70);
-        Rectangle pkmnButton = new Rectangle(fightDimension.width - 75, fightDimension.height - 95, 170, 70);
-        Rectangle itemButton = new Rectangle(fightDimension.width - 245, fightDimension.height - 25, 170, 70);
-        Rectangle fleeButton = new Rectangle(fightDimension.width - 75, fightDimension.height - 25, 170, 70);
-
         g.setColor(Color.RED);
         g.draw(border);
         g.setColor(Color.BLACK);
