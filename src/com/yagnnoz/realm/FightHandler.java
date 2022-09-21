@@ -174,5 +174,21 @@ public class FightHandler {
 
     }
 
+    private void pressedFightButton(){
+
+    }
+
+    private void pressedItemButton(){
+
+    }
+
+    private void pressedPkmnButton(){
+
+    }
+
+    private void pressedFleeButton(){
+
+    }
+
 
 }
