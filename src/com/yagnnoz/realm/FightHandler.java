@@ -10,6 +10,9 @@ import com.yagnnoz.realm.pokemon.mechanics.PokemonFactory;
 
 import java.awt.*;
 
+import static com.yagnnoz.realm.Game.changeGameState;
+import static com.yagnnoz.realm.pokemon.mechanics.Enums.PLAYERACTIONS.AUSWAHL;
+
 /**
  * @author Jens
  */
@@ -60,15 +63,15 @@ public class FightHandler {
             ownPokemon.update();
         }
 
-        if (Mouse.getButton() == 1) {
+        if (Mouse.getButton() == 1 && this.state == AUSWAHL) {
             if ((Mouse.getX() > fightButton.x) && (Mouse.getX() < fightButton.x + fightButton.width) && (Mouse.getY() > fightButton.y) && (Mouse.getY() < fightButton.y + fightButton.height)) {
-                System.out.println("pressed FightButton");
+                pressedFightButton();
             } else if ((Mouse.getX() > pkmnButton.x) && (Mouse.getX() < pkmnButton.x + pkmnButton.width) && (Mouse.getY() > pkmnButton.y) && (Mouse.getY() < pkmnButton.y + pkmnButton.height)) {
-                System.out.println("pressed pkmnButton");
+                pressedPkmnButton();
             } else if ((Mouse.getX() > itemButton.x) && (Mouse.getX() < itemButton.x + itemButton.width) && (Mouse.getY() > itemButton.y) && (Mouse.getY() < itemButton.y + itemButton.height)) {
-                System.out.println("pressed itemButton");
+                pressedItemButton();
             } else if ((Mouse.getX() > fleeButton.x) && (Mouse.getX() < fleeButton.x + fleeButton.width) && (Mouse.getY() > fleeButton.y) && (Mouse.getY() < fleeButton.y + fleeButton.height)) {
-                System.out.println("pressed fleeButton");
+                pressedFleeButton();
             }
         }
 
@@ -128,7 +131,7 @@ public class FightHandler {
     private void determineStartTurn() {
         if (ownPokemon.getSpd() > opponent.getSpd()) {
             turn = Enums.TURN.PLAYER;
-            state = Enums.PLAYERACTIONS.AUSWAHL;
+            state = AUSWAHL;
             System.out.println("PLAYER STARTS");
         } else {
             turn = Enums.TURN.ENEMY;
@@ -174,20 +177,21 @@ public class FightHandler {
 
     }
 
-    private void pressedFightButton(){
+    private void pressedFightButton() {
 
     }
 
-    private void pressedItemButton(){
+    private void pressedItemButton() {
 
     }
 
-    private void pressedPkmnButton(){
+    private void pressedPkmnButton() {
 
     }
 
-    private void pressedFleeButton(){
-
+    private void pressedFleeButton() {
+        changeGameState("GAME");
+        System.out.println("Player ran away");
     }
 
 

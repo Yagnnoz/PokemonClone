@@ -179,9 +179,9 @@ public class Game extends Canvas implements Runnable {
 
                 case FIGHT:
                     fight.update();
-                    if (key.b) {
+                   /* if (key.b) {
                         changeGameState("GAME");
-                    }
+                    }*/
                     break;
 
                 case END:
