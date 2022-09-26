@@ -11,6 +11,7 @@ import com.yagnnoz.realm.pokemon.mechanics.PokemonFactory;
 import java.awt.*;
 
 import static com.yagnnoz.realm.Game.changeGameState;
+import static com.yagnnoz.realm.pokemon.mechanics.Enums.PLAYERACTIONS.ATTACKEN;
 import static com.yagnnoz.realm.pokemon.mechanics.Enums.PLAYERACTIONS.AUSWAHL;
 
 /**
@@ -118,9 +119,9 @@ public class FightHandler {
         return ownPokemon;
     }
 
-    public void render(Screen screen, Graphics g) {
+    public void render(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        this.renderButtons(screen, g2d);
+        this.renderButtons(g2d);
 
     }
 
@@ -145,10 +146,9 @@ public class FightHandler {
     /**
      * Renders the Buttons in the bottom left to the screen
      *
-     * @param screen - reference to the screen
-     * @param g      - Graphics2D object, both passed in from the render() method
+     * @param g - Graphics2D object, both passed in from the render() method
      */
-    private void renderButtons(Screen screen, Graphics2D g) {
+    private void renderButtons(Graphics2D g) {
         g.setColor(Color.RED);
         g.draw(border);
         g.setColor(Color.BLACK);
@@ -165,28 +165,28 @@ public class FightHandler {
                 g.drawString("Pokémon", pkmnButton.x + 20, pkmnButton.y + 40);
                 g.drawString("Beutel", itemButton.x + 20, itemButton.y + 40);
                 g.drawString("Flucht", fleeButton.x + 20, fleeButton.y + 40);
-                break;
-            }/*
+            }
             case ATTACKEN -> {
-                g.drawString("Kampf", fightButton.x + 20, fightButton.y + 40);
-                g.drawString("Pokémon", pkmnButton.x + 20, pkmnButton.y + 40);
-                g.drawString("Beutel", itemButton.x + 20, itemButton.y + 40);
-                g.drawString("Flucht", fleeButton.x + 20, fleeButton.y + 40);
-            }*/
+                g.drawString(getOwn().getAttacken()[0] != null ? getOwn().getAttacken()[0].toString() : "", fightButton.x + 20, fightButton.y + 40);
+                g.drawString(getOwn().getAttacken()[1] != null ? getOwn().getAttacken()[1].toString() : "", pkmnButton.x + 20, pkmnButton.y + 40);
+                g.drawString(getOwn().getAttacken()[2] != null ? getOwn().getAttacken()[2].toString() : "", itemButton.x + 20, itemButton.y + 40);
+                g.drawString(getOwn().getAttacken()[3] != null ? getOwn().getAttacken()[3].toString() : "", fleeButton.x + 20, fleeButton.y + 40);
+            }
         }
 
     }
 
     private void pressedFightButton() {
-
+        state = ATTACKEN;
+        System.out.println("Player pressed Fight");
     }
 
     private void pressedItemButton() {
-
+        System.out.println("Player pressed Items");
     }
 
     private void pressedPkmnButton() {
-
+        System.out.println("Player pressed PKMN");
     }
 
     private void pressedFleeButton() {
