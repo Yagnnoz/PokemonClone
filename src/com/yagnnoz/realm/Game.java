@@ -235,7 +235,7 @@ public class Game extends Canvas implements Runnable {
             case FIGHT:
                 g.drawImage(fightImage, 0, 0, getWidth(), getHeight(), null);
                 fightScreen.renderBattlefield();
-                fight.render(fightScreen, g);
+                fight.render(g);
 
                 fight.getOpponent().renderOpponent(fightScreen);
                 fight.getOwn().renderOwnPokemon(fightScreen);
