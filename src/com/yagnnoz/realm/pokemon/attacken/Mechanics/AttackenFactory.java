@@ -1,10 +1,6 @@
 package com.yagnnoz.realm.pokemon.attacken.Mechanics;
 
-import com.yagnnoz.realm.pokemon.attacken.attacken.Tackle;
-import com.yagnnoz.realm.pokemon.attacken.attacken.Feuersturm;
-import com.yagnnoz.realm.pokemon.attacken.attacken.Fadenschuss;
-import com.yagnnoz.realm.pokemon.attacken.attacken.Giftstachel;
-import com.yagnnoz.realm.pokemon.attacken.attacken.Hydropumpe;
+import com.yagnnoz.realm.pokemon.attacken.attacken.*;
 
 /**
  *
@@ -30,7 +26,10 @@ public class AttackenFactory {
                 break;
             case "Hydropumpe":
                 result = new Hydropumpe();
-                break;                
+                break;
+            case "Heuler":
+                result = new Heuler();
+                break;
         }
         
         return result;
