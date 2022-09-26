@@ -5,13 +5,10 @@ import com.yagnnoz.realm.graphics.Sprite;
 import com.yagnnoz.realm.pokemon.attacken.Mechanics.Attacke;
 import com.yagnnoz.realm.pokemon.attacken.Mechanics.AttackenEntry;
 import com.yagnnoz.realm.pokemon.attacken.Mechanics.AttackenFactory;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+
+import java.util.*;
 
 /**
- *
  * @author Jens
  */
 public abstract class Pokemon {
@@ -51,7 +48,6 @@ public abstract class Pokemon {
     }
 
     /**
-     *
      * @return Name of the Pokemon
      */
     @Override
@@ -61,6 +57,10 @@ public abstract class Pokemon {
         } else {
             return null;
         }
+    }
+
+    public Attacke[] getAttacken() {
+        return this.Attacken;
     }
 
     protected void setName(String name) {
@@ -131,32 +131,32 @@ public abstract class Pokemon {
         }
 
         //debug: OUtput all attacks
-        /*
+
         System.out.println("Alle Attacken:");
-        for(int i = 0; i<AtkPerLvl.size(); i++){
-            System.out.println(AtkPerLvl.get(i).name + ", reqLvl: "+AtkPerLvl.get(i).reqLevel);
+        for (int i = 0; i < AtkPerLvl.size(); i++) {
+            System.out.println(AtkPerLvl.get(i).name + ", reqLvl: " + AtkPerLvl.get(i).reqLevel);
         }
-         
+
         System.out.println("SIZE of ATK List: " + AtkPerLvl.size());
-         */
-        int gelernteAttacken = 0;
-        for (int i = AtkPerLvl.size(); i > 0; i--) {
-            if (gelernteAttacken > 3) {
-                break;
+
+
+        int currentAtk = 0;
+        for (int i = 0; i < AtkPerLvl.size() - 1; i++) {
+            if (currentAtk == 4) {
+                currentAtk = 0;
             }
-            if (level >= AtkPerLvl.get(i - 1).getReqLvl()) {
-                Attacken[gelernteAttacken] = AttackenFactory.makeAttacke(AtkPerLvl.get(i - 1).name);
-                gelernteAttacken++;
-            }
+            Attacken[currentAtk] = AttackenFactory.makeAttacke(AtkPerLvl.get(i).name);
+            currentAtk += 1;
         }
+
 
         /*
         Debug: Output ATK Array
          */
-        System.out.println("gelernte Attacken: ");
+        System.out.println("gelernte Attacken " + this.name + ": ");
         for (int i = 0; i < Attacken.length; i++) {
             if (Attacken[i] != null) {
-                System.out.println(Attacken[i].toString());
+                System.out.println(i + " " + Attacken[i].toString());
             }
         }
 
