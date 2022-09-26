@@ -1,5 +1,6 @@
 package com.yagnnoz.realm.pokemon.pokemon;
 
+import com.yagnnoz.realm.pokemon.attacken.Mechanics.AttackenEntry;
 import com.yagnnoz.realm.pokemon.mechanics.Pokemon;
 import com.yagnnoz.realm.graphics.Sprite;
 import com.yagnnoz.realm.graphics.SpriteSheet;
@@ -54,6 +55,9 @@ public final class Bisasam extends Pokemon {
 
         NUMBER_FRAMES_FRONT_ANIM = frontSprites.size();
         NUMBER_FRAMES_BACK_ANIM = backSprites.size();
+
+        populateAttackList();
+        setAttacks(level);
     }
 
     @Override
@@ -256,7 +260,9 @@ public final class Bisasam extends Pokemon {
 
     @Override
     protected void populateAttackList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        AtkPerLvl.add(new AttackenEntry("Tackle", 2));
+        AtkPerLvl.add(new AttackenEntry("Heuler", 2));
+        AtkPerLvl.add(new AttackenEntry("Rasierblatt", 7));
     }
 
     @Override
