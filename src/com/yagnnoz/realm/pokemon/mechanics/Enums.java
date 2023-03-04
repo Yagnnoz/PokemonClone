@@ -25,4 +25,10 @@ public class Enums {
         PHYSICAL, SPECIAL, STATUS
     }
 
+    public enum GAMESTATE {
+        MENU, GAME, END, FIGHT
+
+    }
+
+
 }

@@ -12,7 +12,7 @@ public class Fadenschuss extends Attacke {
     public Fadenschuss() {
         str = 0;
         acc = 100;
-        typ = Enums.TYP.KÄFER;
+        typ = Enums.TYP.KAEFER;
         stdPP = 15;
         maxPP = 25;
         currPP = stdPP;

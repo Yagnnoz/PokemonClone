@@ -3,6 +3,7 @@ package com.yagnnoz.realm;
 import com.yagnnoz.realm.entity.mob.Player;
 import com.yagnnoz.realm.entity.mob.Trainer;
 import com.yagnnoz.realm.graphics.Screen;
+import com.yagnnoz.realm.input.Keyboard;
 import com.yagnnoz.realm.input.Mouse;
 import com.yagnnoz.realm.pokemon.mechanics.Enums;
 import com.yagnnoz.realm.pokemon.mechanics.Pokemon;
@@ -57,6 +58,8 @@ public class FightHandler {
     }
 
     void update() {
+        Keyboard.update();
+
         if (opponent == null && ownPokemon == null) {
             startWildPkmnFight();
         } else {
@@ -74,6 +77,10 @@ public class FightHandler {
             } else if ((Mouse.getX() > fleeButton.x) && (Mouse.getX() < fleeButton.x + fleeButton.width) && (Mouse.getY() > fleeButton.y) && (Mouse.getY() < fleeButton.y + fleeButton.height)) {
                 pressedFleeButton();
             }
+        }
+
+        if(Keyboard.b) {
+            pressedBackButton();
         }
 
     }
@@ -190,8 +197,13 @@ public class FightHandler {
     }
 
     private void pressedFleeButton() {
-        changeGameState("GAME");
+        changeGameState(Enums.GAMESTATE.GAME);
         System.out.println("Player ran away");
+    }
+
+    private void pressedBackButton() {
+        this.state = AUSWAHL;
+        System.out.println("Player pressed back") ;
     }
 
 

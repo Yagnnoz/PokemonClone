@@ -2,6 +2,8 @@ package com.yagnnoz.realm.graphics;
 
 import com.yagnnoz.realm.Game;
 import com.yagnnoz.realm.input.Mouse;
+import com.yagnnoz.realm.pokemon.mechanics.Enums;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -46,10 +48,10 @@ public class Menu {
     public void update() {
         if (Mouse.getButton() == 1) {
             if ((Mouse.getX() >= playButton.getX() && (Mouse.getX() <= playButton.getX() + 100)) && (Mouse.getY() >= playButton.getY()) && Mouse.getY() <= playButton.getY() + 50) {
-                Game.changeGameState("GAME");
+                Game.changeGameState(Enums.GAMESTATE.GAME);
             }
             if ((Mouse.getX() >= quitButton.getX() && (Mouse.getX() <= quitButton.getX() + 100)) && (Mouse.getY() >= quitButton.getY()) && Mouse.getY() <= quitButton.getY() + 50) {
-                Game.changeGameState("END");
+                Game.changeGameState(Enums.GAMESTATE.END);
             }
         }
     }

@@ -9,10 +9,10 @@ import java.awt.event.KeyListener;
  */
 public class Keyboard implements KeyListener {
 
-    private boolean[] keys = new boolean[KeyEvent.KEY_LAST];
-    public boolean up, down, left, right, esc, b, e, f;
+    private static boolean[] keys = new boolean[KeyEvent.KEY_LAST];
+    public static boolean up, down, left, right, esc, b, e, f;
 
-    public void update() {
+    public static void update() {
         up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_W];
         left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_A];
         down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];

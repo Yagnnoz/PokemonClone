@@ -8,6 +8,7 @@ import com.yagnnoz.realm.level.Level;
 import com.yagnnoz.realm.level.Route1;
 import com.yagnnoz.realm.level.TileCoordinate;
 import com.yagnnoz.realm.level.tile.Tile;
+import com.yagnnoz.realm.pokemon.mechanics.Enums;
 import com.yagnnoz.realm.pokemon.mechanics.PokemonFactory;
 import java.awt.Canvas;
 import java.awt.Dimension;
@@ -24,17 +25,13 @@ import javax.swing.JFrame;
  */
 public class Game extends Canvas implements Runnable {
 
-    public enum GAMESTATE {
-        MENU, GAME, END, FIGHT
-    };
-
-    private static final long serialVersionUID = 1L;
+     private static final long serialVersionUID = 1L;
 
     public static int width = 300;
     public static int height = width / 16 * 9;      //16:9 format
     public static int scale = 3;
     public static double scaleFight = 2.65;
-    public static GAMESTATE state;
+    public static Enums.GAMESTATE state;
 
     private Thread gameThread;
     private JFrame frame;
@@ -77,7 +74,7 @@ public class Game extends Canvas implements Runnable {
         addKeyListener(key);
         menu = new Menu(mouse);
 
-        state = GAMESTATE.MENU;
+        state = Enums.GAMESTATE.MENU;
 
     }
 
@@ -126,19 +123,8 @@ public class Game extends Canvas implements Runnable {
         }
     }
 
-    public static void changeGameState(String pState) {
-        if (pState.equals("GAME")) {
-            state = GAMESTATE.GAME;
-        }
-        if (pState.equals("MENU")) {
-            state = GAMESTATE.MENU;
-        }
-        if (pState.equals("END")) {
-            state = GAMESTATE.END;
-        }
-        if (pState.equals("FIGHT")) {
-            state = GAMESTATE.FIGHT;
-        }
+    public static void changeGameState(Enums.GAMESTATE pState) {
+            state = pState;
     }
 
     public static void main(String[] args) {
@@ -161,7 +147,7 @@ public class Game extends Canvas implements Runnable {
                 case GAME:
                     player.update();
                     if (key.esc) {
-                        changeGameState("MENU");
+                        changeGameState(Enums.GAMESTATE.MENU);
                     }
                     if (key.e) {
                         checkForInteraction();
@@ -269,7 +255,7 @@ public class Game extends Canvas implements Runnable {
                 //TODO: das funktioniert nicht, wenn der spieler direkt unter einem anderen Tile läuft, position ist zu hoch!
                 if (level.getTile(player.getTileX(), player.getTileY()) == Tile.spawn_tall_grass) {
                     if (Math.random() <= 0.1) {
-                        changeGameState("FIGHT");
+                        changeGameState(Enums.GAMESTATE.FIGHT);
                         fight.startWildPkmnFight();
                     }
                 }
@@ -283,7 +269,7 @@ public class Game extends Canvas implements Runnable {
             case 0:
                 for (int i = 0; i < level.getTrainers().size(); i++) {
                     if (level.getTrainers().get(i).getTileX() == player.getTileX() && level.getTrainers().get(i).getTileY() == player.getTileY() - 1) {
-                        changeGameState("FIGHT");
+                        changeGameState(Enums.GAMESTATE.FIGHT);
                         fight.startTrainerFight(level.getTrainers().get(i));
                     }
                 }
@@ -291,7 +277,7 @@ public class Game extends Canvas implements Runnable {
             case 1:
                 for (int i = 0; i < level.getTrainers().size(); i++) {
                     if (level.getTrainers().get(i).getTileX() == player.getTileX() + 1 && level.getTrainers().get(i).getTileY() == player.getTileY()) {
-                        changeGameState("FIGHT");
+                        changeGameState(Enums.GAMESTATE.FIGHT);
                         fight.startTrainerFight(level.getTrainers().get(i));
                     }
                 }
@@ -299,7 +285,7 @@ public class Game extends Canvas implements Runnable {
             case 2:
                 for (int i = 0; i < level.getTrainers().size(); i++) {
                     if (level.getTrainers().get(i).getTileX() == player.getTileX() && level.getTrainers().get(i).getTileY() == player.getTileY() + 1) {
-                        changeGameState("FIGHT");
+                        changeGameState(Enums.GAMESTATE.FIGHT);
                         fight.startTrainerFight(level.getTrainers().get(i));
                     }
                 }
@@ -307,7 +293,7 @@ public class Game extends Canvas implements Runnable {
             case 3:
                 for (int i = 0; i < level.getTrainers().size(); i++) {
                     if (level.getTrainers().get(i).getTileX() == player.getTileX() - 1 && level.getTrainers().get(i).getTileY() == player.getTileY()) {
-                        changeGameState("FIGHT");
+                        changeGameState(Enums.GAMESTATE.FIGHT);
                         fight.startTrainerFight(level.getTrainers().get(i));
                     }
                 }
