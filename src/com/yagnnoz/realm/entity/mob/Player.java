@@ -13,7 +13,6 @@ import java.util.List;
  */
 public class Player extends Mob {
 
-    private Keyboard input;
     protected Sprite sprite;
     protected int animate = 0;
     protected boolean walking = false;
@@ -21,16 +20,14 @@ public class Player extends Mob {
     protected List<Pokemon> team;
     
 
-    public Player(Keyboard input) {
-        this.input = input;
+    public Player() {
         this.sprite = Sprite.player_up;
         team = new ArrayList<>();
     }
 
-    public Player(int x, int y, Keyboard input) {
+    public Player(int x, int y) {
         this.x = x;
         this.y = y;
-        this.input = input;
         this.sprite = Sprite.player_up;
         team = new ArrayList<>();
     }
@@ -45,16 +42,16 @@ public class Player extends Mob {
         } else {
             animate = 0;
         }
-        if (input.up) {
+        if (Keyboard.up) {
             ya-=2;
         }
-        if (input.down) {
+        if (Keyboard.down) {
             ya+=2;
         }
-        if (input.left) {
+        if (Keyboard.left) {
             xa-=2;
         }
-        if (input.right) {
+        if (Keyboard.right) {
             xa+=2;
         }
 

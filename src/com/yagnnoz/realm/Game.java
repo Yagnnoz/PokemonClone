@@ -63,7 +63,7 @@ public class Game extends Canvas implements Runnable {
         mouse = new Mouse();
         level = new Route1("/levels/spawn.png");
         TileCoordinate playerSpawn = new TileCoordinate(11, 4);
-        player = new Player(playerSpawn.getX(), playerSpawn.getY(), key);
+        player = new Player(playerSpawn.getX(), playerSpawn.getY());
         player.init(level);
         player.addPokemon(PokemonFactory.makePokemon("Bisasam", 5));
         fight = new FightHandler(this, fightScreen);
@@ -140,19 +140,19 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void update() {
-        key.update();
+        Keyboard.update();
         if (null != state) {
             switch (state) {
 
                 case GAME:
                     player.update();
-                    if (key.esc) {
+                    if (Keyboard.esc) {
                         changeGameState(Enums.GAMESTATE.MENU);
                     }
-                    if (key.e) {
+                    if (Keyboard.e) {
                         checkForInteraction();
                     }
-                    if (key.f) {
+                    if (Keyboard.f) {
                         System.out.println("PLayer TILEPOS: X: " + player.getTileX() + " , Y: " + player.getTileY());
                     }
                     checkGrassforWildPkmn();
@@ -165,9 +165,6 @@ public class Game extends Canvas implements Runnable {
 
                 case FIGHT:
                     fight.update();
-                   /* if (key.b) {
-                        changeGameState("GAME");
-                    }*/
                     break;
 
                 case END:

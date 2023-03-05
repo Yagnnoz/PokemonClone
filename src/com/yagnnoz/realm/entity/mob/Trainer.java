@@ -12,14 +12,14 @@ import java.util.ArrayList;
 public class Trainer extends Player {
     
     public Trainer(int x, int y) {
-        super(x,y, null);
+        super(x,y);
         this.sprite = Sprite.trainer_left;
         team = new ArrayList<>();
         dir = 1;
     }
     
     public Trainer(TileCoordinate tc, int dir){
-        super(tc.getX()+8, tc.getY(), null); //+8: half of a tile
+        super(tc.getX()+8, tc.getY()); //+8: half of a tile
         this.sprite = Sprite.trainer_left;
         team = new ArrayList<>();
         this.dir = dir;
